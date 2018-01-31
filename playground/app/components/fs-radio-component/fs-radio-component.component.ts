@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'fs-radio-component',
   templateUrl: 'fs-radio-component.component.html',
-  styleUrls: [ '../../styles.scss' ],
+  styleUrl: 'fs-radio-component.component.css',
 })
 export class FsRadioComponent {
 

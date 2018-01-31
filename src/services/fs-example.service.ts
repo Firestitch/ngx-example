@@ -6,11 +6,9 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 import { catchError, map, tap, reduce } from 'rxjs/operators';
 
 @Injectable()
-export class ElementsService {
+export class FsExampleService {
 
-  constructor(
-    private http: HttpClient,
-    @Inject('elements') private elements) { }
+  constructor(private http: HttpClient) { }
 
   getElementCode(name): Observable<object> {
     const tapData = (res) => {

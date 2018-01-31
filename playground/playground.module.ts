@@ -6,8 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FsComponentModule } from '../src';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app/material.module';
-import { FsExampleComponent } from './app/components/fs-example/fs-example.component';
 import { FsExamplesComponent } from './app/components/fs-examples/fs-examples.component';
+
+import { FsInputComponent } from './app/components/fs-input-component/fs-input-component.component';
+import { FsRadioComponent } from './app/components/fs-radio-component/fs-radio-component.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -17,15 +19,13 @@ import { FsExamplesComponent } from './app/components/fs-examples/fs-examples.co
     BrowserAnimationsModule,
     AppMaterialModule
   ],
-  entryComponents: [
-  ],
   declarations: [
     AppComponent,
-    FsExampleComponent,
-    FsExamplesComponent
+    FsExamplesComponent,
+    FsInputComponent,
+    FsRadioComponent
   ],
-  providers: [
-  ],
+  providers: [],
 })
 export class PlaygroundModule {
 }

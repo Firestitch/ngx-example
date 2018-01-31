@@ -1,37 +1,33 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppMaterialModule } from '../playground/app/material.module';
 
-import { FsInputComponent } from './components/fs-input-component/fs-input-component.component';
-import { FsRadioComponent } from './components/fs-radio-component/fs-radio-component.component';
-import { FsComponentService } from './services/fs-component.service';
-import { ElementsService } from './services/elements.service';
-import { ELEMENTS } from './elements';
+import { FsExampleComponent } from './components/fs-example-component/fs-example.component';
+import { FsExampleService } from './services/fs-example.service';
 
 @NgModule({
   imports: [
     CommonModule,
+    AppMaterialModule
   ],
+  // do I need this?
   exports: [
-    FsInputComponent,
-    FsRadioComponent
+    FsExampleComponent
   ],
   entryComponents: [
   ],
   declarations: [
-    FsInputComponent,
-    FsRadioComponent
+    FsExampleComponent
   ],
   providers: [
-    FsComponentService,
-    {provide: 'elementService', useClass: ElementsService},
-    {provide: 'elements', useValue: ELEMENTS}
+    FsExampleService
   ],
 })
 export class FsComponentModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: FsComponentModule,
-      providers: [FsComponentService]
+      providers: [FsExampleService]
     };
   }
 }

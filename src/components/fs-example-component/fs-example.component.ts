@@ -3,12 +3,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import { FsExampleService } from '../../services/fs-example.service'
 
 interface ComponentCode {
   type: string;
   code: string
 }
-declare var hljs: any;
 
 @Component({
   selector: 'fs-example',
@@ -29,7 +29,7 @@ export class FsExampleComponent implements OnInit {
     iconRegistry: MatIconRegistry, 
     sanitizer: DomSanitizer,
     private http: HttpClient,
-    @Inject('elementService') private elementService 
+    private exampleService: FsExampleService 
   ) {
     iconRegistry.addSvgIcon('code',
         sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/code.svg'));
@@ -37,13 +37,14 @@ export class FsExampleComponent implements OnInit {
   ngOnInit() {
     let order = ['html', 'ts', 'css'];
 
-    this.elementService.getElementCode(this.componentName).subscribe(elem => {
-      this.elementService.getFileContents(this.componentName, elem.children)
-        .subscribe(files => {
-          this.tabs = files.sort((a, b) => {
-            return order.indexOf(a.type) - order.indexOf(b.type)
-          });
-        });
+    this.exampleService.getElementCode(this.componentName).subscribe(elem => {
+      console.log(elem)
+      // this.exampleService.getFileContents(this.componentName, elem.children)
+      //   .subscribe(files => {
+      //     this.tabs = files.sort((a, b) => {
+      //       return order.indexOf(a.type) - order.indexOf(b.type)
+      //     });
+      //   });
     });
   }
   toggleContent() {
