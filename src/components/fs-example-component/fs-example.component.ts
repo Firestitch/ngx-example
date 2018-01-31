@@ -37,14 +37,13 @@ export class FsExampleComponent implements OnInit {
   ngOnInit() {
     let order = ['html', 'ts', 'css'];
 
-    this.exampleService.getElementCode(this.componentName).subscribe(elem => {
-      console.log(elem)
-      // this.exampleService.getFileContents(this.componentName, elem.children)
-      //   .subscribe(files => {
-      //     this.tabs = files.sort((a, b) => {
-      //       return order.indexOf(a.type) - order.indexOf(b.type)
-      //     });
-      //   });
+    this.exampleService.getElementCode(this.componentName).subscribe((elem: any)  => {
+      this.exampleService.getFileContents(this.componentName, elem.children)
+        .subscribe((files: any) => {
+          this.tabs = files.sort((a: any, b: any) => {
+            return order.indexOf(a.type) - order.indexOf(b.type)
+          });
+        });
     });
   }
   toggleContent() {
