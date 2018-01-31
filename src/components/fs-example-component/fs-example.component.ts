@@ -1,6 +1,4 @@
-import { Component, Input, Inject, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FsExampleService } from '../../services/fs-example.service'
@@ -13,8 +11,7 @@ interface ComponentCode {
 @Component({
   selector: 'fs-example',
   templateUrl: 'fs-example.component.html',
-  styles: [`mat-toolbar {color: rgba(0,0,0,0.54); font-size: 16px; display: flex; justify-content: space-between}
-   .example-code {border-bottom: 1px solid rgba(0,0,0,0.1); padding: 16px 24px; min-height: 64px}`]
+  styleUrls: ['fs-example.component.css']
 })
 
 export class FsExampleComponent implements OnInit {
@@ -26,14 +23,10 @@ export class FsExampleComponent implements OnInit {
   @Input() componentName: string;
 
   constructor(
-    iconRegistry: MatIconRegistry, 
-    sanitizer: DomSanitizer,
     private http: HttpClient,
     private exampleService: FsExampleService 
-  ) {
-    iconRegistry.addSvgIcon('code',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/code.svg'));
-  }
+  ) {}
+
   ngOnInit() {
     let order = ['html', 'ts', 'css'];
 
