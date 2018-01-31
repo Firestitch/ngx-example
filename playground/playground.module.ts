@@ -6,9 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FsComponentModule } from '../src';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app/material.module';
-import { FsComponentExampleComponent } from './app/components/fs-component-example/fs-component-example.component';
-import { FsComponentExamplesComponent } from './app/components/fs-component-examples/fs-component-examples.component';
-import { ExampleComponentComponent } from './app/components/example-component/example-component.component';
+import { FsExampleComponent } from './app/components/fs-example/fs-example.component';
+import { FsExamplesComponent } from './app/components/fs-examples/fs-examples.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -22,9 +21,8 @@ import { ExampleComponentComponent } from './app/components/example-component/ex
   ],
   declarations: [
     AppComponent,
-    FsComponentExampleComponent,
-    FsComponentExamplesComponent,
-    ExampleComponentComponent
+    FsExampleComponent,
+    FsExamplesComponent
   ],
   providers: [
   ],

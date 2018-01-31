@@ -1,0 +1,22 @@
+<div class="mat-elevation-z2">
+  <mat-toolbar>
+      <span>{{title}}</span>
+      <button mat-icon-button (click)="toggleContent()">
+        <mat-icon svgIcon="code"></mat-icon>
+      </button>
+  </mat-toolbar>
+  <div *ngIf="showTabs">
+    <mat-tab-group>
+      <div *ngFor="let tab of tabs">
+        <mat-tab label="{{tab.type | uppercase}}">
+          <pre class="example-code html">{{tab.code}}</pre>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
+</div>
+  <mat-card class="mat-elevation-z0">
+    <div #items>
+      <ng-content></ng-content>
+    </div>
+  </mat-card>
+</div>

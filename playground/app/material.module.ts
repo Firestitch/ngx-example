@@ -34,6 +34,7 @@ import {
   //import { FlexLayoutModule } from '@angular/flex-layout';
   import {NgModule} from '@angular/core';
   import {CdkTableModule} from '@angular/cdk/table';
+  import {HttpClientModule} from '@angular/common/http';
 
   @NgModule({
     exports: [
@@ -69,7 +70,8 @@ import {
       MatTabsModule,
       MatToolbarModule,
       MatTooltipModule,
-      //FlexLayoutModule
+      //FlexLayoutModule,
+      HttpClientModule
     ]
   })
   export class AppMaterialModule {}

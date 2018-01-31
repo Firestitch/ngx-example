@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("@angular/core"), require("@angular/common"));
+		module.exports = factory(require("@angular/core"), require("@angular/common"), require("@angular/common/http"), require("rxjs/observable/forkJoin"), require("rxjs/operators"));
 	else if(typeof define === 'function' && define.amd)
-		define("@firestitch/fs-playground", ["@angular/core", "@angular/common"], factory);
+		define("@firestitch/fs-playground", ["@angular/core", "@angular/common", "@angular/common/http", "rxjs/observable/forkJoin", "rxjs/operators"], factory);
 	else if(typeof exports === 'object')
-		exports["@firestitch/fs-playground"] = factory(require("@angular/core"), require("@angular/common"));
+		exports["@firestitch/fs-playground"] = factory(require("@angular/core"), require("@angular/common"), require("@angular/common/http"), require("rxjs/observable/forkJoin"), require("rxjs/operators"));
 	else
-		root["@firestitch/fs-playground"] = factory(root["@angular/core"], root["@angular/common"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE__angular_core__, __WEBPACK_EXTERNAL_MODULE__angular_common__) {
+		root["@firestitch/fs-playground"] = factory(root["@angular/core"], root["@angular/common"], root["@angular/common/http"], root["rxjs/observable/forkJoin"], root["rxjs/operators"]);
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE__angular_core__, __WEBPACK_EXTERNAL_MODULE__angular_common__, __WEBPACK_EXTERNAL_MODULE__angular_common_http__, __WEBPACK_EXTERNAL_MODULE_rxjs_observable_forkJoin__, __WEBPACK_EXTERNAL_MODULE_rxjs_operators__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -83,7 +83,7 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, ".test-component {\n  font-weight: 600;\n}\n\n", "", {"version":3,"sources":["c:/Projects/component-boilerplate/src/c:/Projects/component-boilerplate/src/src/styles.scss","c:/Projects/component-boilerplate/src/c:/Projects/component-boilerplate/styles.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;CCCD","file":"styles.scss","sourcesContent":[".test-component {\r\n  font-weight: 600;\r\n}\r\n",".test-component {\n  font-weight: 600;\n}\n\n"],"sourceRoot":""}]);
+exports.push([module.i, ".test-component {\n  font-weight: 600;\n}\n\n", "", {"version":3,"sources":["D:/Projects/Firestitch/component-boilerplate/src/D:/Projects/Firestitch/component-boilerplate/src/src/styles.scss","D:/Projects/Firestitch/component-boilerplate/src/D:/Projects/Firestitch/component-boilerplate/styles.scss"],"names":[],"mappings":"AAAA;EACE,iBAAA;CCCD","file":"styles.scss","sourcesContent":[".test-component {\r\n  font-weight: 600;\r\n}\r\n",".test-component {\n  font-weight: 600;\n}\n\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -173,14 +173,14 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ "./components/fs-test-component/fs-test-component.component.html":
+/***/ "./components/fs-input-component/fs-input-component.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p class=\"test-component\">My test Component</p>\r\n"
+module.exports = "<h1>Component template</h1>\r\nfs-input-component.component.html"
 
 /***/ }),
 
-/***/ "./components/fs-test-component/fs-test-component.component.ts":
+/***/ "./components/fs-input-component/fs-input-component.component.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -196,25 +196,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("@angular/core");
-var FsTestComponentComponent = /** @class */ (function () {
-    function FsTestComponentComponent() {
+var FsInputComponent = /** @class */ (function () {
+    function FsInputComponent() {
     }
-    FsTestComponentComponent = __decorate([
+    FsInputComponent = __decorate([
         core_1.Component({
-            selector: 'fs-test-component',
-            template: __webpack_require__("./components/fs-test-component/fs-test-component.component.html"),
+            selector: 'fs-input-component',
+            template: __webpack_require__("./components/fs-input-component/fs-input-component.component.html"),
             styles: [__webpack_require__("./styles.scss")],
         }),
         __metadata("design:paramtypes", [])
-    ], FsTestComponentComponent);
-    return FsTestComponentComponent;
+    ], FsInputComponent);
+    return FsInputComponent;
 }());
-exports.FsTestComponentComponent = FsTestComponentComponent;
+exports.FsInputComponent = FsInputComponent;
 
 
 /***/ }),
 
-/***/ "./components/fs-test-component/index.ts":
+/***/ "./components/fs-input-component/index.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -223,12 +223,82 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__("./components/fs-test-component/fs-test-component.component.ts"));
+__export(__webpack_require__("./components/fs-input-component/fs-input-component.component.ts"));
 
 
 /***/ }),
 
-/***/ "./fs-test.module.ts":
+/***/ "./components/fs-radio-component/fs-radio-component.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Component template</h1>\r\nfs-radio-component.component.html"
+
+/***/ }),
+
+/***/ "./components/fs-radio-component/fs-radio-component.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("@angular/core");
+var FsRadioComponent = /** @class */ (function () {
+    function FsRadioComponent() {
+    }
+    FsRadioComponent = __decorate([
+        core_1.Component({
+            selector: 'fs-radio-component',
+            template: __webpack_require__("./components/fs-radio-component/fs-radio-component.component.html"),
+            styles: [__webpack_require__("./styles.scss")],
+        }),
+        __metadata("design:paramtypes", [])
+    ], FsRadioComponent);
+    return FsRadioComponent;
+}());
+exports.FsRadioComponent = FsRadioComponent;
+
+
+/***/ }),
+
+/***/ "./elements.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ELEMENTS = {
+    input: {
+        title: 'Input',
+        codeCollection: [
+            {
+                label: 'HTML',
+                code: "<h1>Component template</h1>\nfs-component.component.html"
+            },
+            {
+                label: 'TS',
+                code: "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'fs-component',\n  template: require('./fs-component.component.html'),\n  styles: [ require('../../styles.scss') ],\n})\nexport class FsComponentComponent {\n\n  constructor() {\n  }\n}"
+            },
+            {
+                label: 'CSS',
+                code: ""
+            }
+        ]
+    }
+};
+
+
+/***/ }),
+
+/***/ "./fs-component.module.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -242,40 +312,46 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("@angular/core");
 var common_1 = __webpack_require__("@angular/common");
-// Components
-var fs_test_component_1 = __webpack_require__("./components/fs-test-component/index.ts");
-var fs_test_service_1 = __webpack_require__("./services/fs-test.service.ts");
-var FsTestModule = /** @class */ (function () {
-    function FsTestModule() {
+var fs_input_component_component_1 = __webpack_require__("./components/fs-input-component/fs-input-component.component.ts");
+var fs_radio_component_component_1 = __webpack_require__("./components/fs-radio-component/fs-radio-component.component.ts");
+var fs_component_service_1 = __webpack_require__("./services/fs-component.service.ts");
+var elements_service_1 = __webpack_require__("./services/elements.service.ts");
+var elements_1 = __webpack_require__("./elements.ts");
+var FsComponentModule = /** @class */ (function () {
+    function FsComponentModule() {
     }
-    FsTestModule_1 = FsTestModule;
-    FsTestModule.forRoot = function () {
+    FsComponentModule_1 = FsComponentModule;
+    FsComponentModule.forRoot = function () {
         return {
-            ngModule: FsTestModule_1,
-            providers: [fs_test_service_1.FsTestService]
+            ngModule: FsComponentModule_1,
+            providers: [fs_component_service_1.FsComponentService]
         };
     };
-    FsTestModule = FsTestModule_1 = __decorate([
+    FsComponentModule = FsComponentModule_1 = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
             ],
             exports: [
-                fs_test_component_1.FsTestComponentComponent,
+                fs_input_component_component_1.FsInputComponent,
+                fs_radio_component_component_1.FsRadioComponent
             ],
             entryComponents: [],
             declarations: [
-                fs_test_component_1.FsTestComponentComponent,
+                fs_input_component_component_1.FsInputComponent,
+                fs_radio_component_component_1.FsRadioComponent
             ],
             providers: [
-                fs_test_service_1.FsTestService,
+                fs_component_service_1.FsComponentService,
+                { provide: 'elementService', useClass: elements_service_1.ElementsService },
+                { provide: 'elements', useValue: elements_1.ELEMENTS }
             ],
         })
-    ], FsTestModule);
-    return FsTestModule;
-    var FsTestModule_1;
+    ], FsComponentModule);
+    return FsComponentModule;
+    var FsComponentModule_1;
 }());
-exports.FsTestModule = FsTestModule;
+exports.FsComponentModule = FsComponentModule;
 
 
 /***/ }),
@@ -289,14 +365,72 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__("./fs-test.module.ts"));
-__export(__webpack_require__("./components/fs-test-component/index.ts"));
-__export(__webpack_require__("./services/fs-test.service.ts"));
+__export(__webpack_require__("./fs-component.module.ts"));
+__export(__webpack_require__("./components/fs-input-component/index.ts"));
+__export(__webpack_require__("./services/fs-component.service.ts"));
 
 
 /***/ }),
 
-/***/ "./services/fs-test.service.ts":
+/***/ "./services/elements.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("@angular/core");
+var http_1 = __webpack_require__("@angular/common/http");
+var forkJoin_1 = __webpack_require__("rxjs/observable/forkJoin");
+var operators_1 = __webpack_require__("rxjs/operators");
+var ElementsService = /** @class */ (function () {
+    function ElementsService(http, elements) {
+        this.http = http;
+        this.elements = elements;
+    }
+    ElementsService.prototype.getElementCode = function (name) {
+        var tapData = function (res) {
+            return res.children.filter(function (child) { return child.name === name; })[0];
+        };
+        return this.http.get('./src/components/components.json')
+            .pipe(operators_1.map(tapData));
+    };
+    ElementsService.prototype.getFileContents = function (name, paths) {
+        var _this = this;
+        var fileCode = paths.reduce(function (a, child) {
+            if (RegExp(name).test(child.name)) {
+                var type_1 = child.extension.replace(/\./, '');
+                var call = _this.http.get(child.path, { responseType: 'text' }).pipe(operators_1.map(function (code) { return ({ type: type_1, code: code }); }));
+                return a.concat([call]);
+            }
+            return a;
+        }, []);
+        return forkJoin_1.forkJoin.apply(void 0, fileCode);
+    };
+    ElementsService = __decorate([
+        core_1.Injectable(),
+        __param(1, core_1.Inject('elements')),
+        __metadata("design:paramtypes", [http_1.HttpClient, Object])
+    ], ElementsService);
+    return ElementsService;
+}());
+exports.ElementsService = ElementsService;
+
+
+/***/ }),
+
+/***/ "./services/fs-component.service.ts":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -312,19 +446,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__("@angular/core");
-var FsTestService = /** @class */ (function () {
-    function FsTestService() {
+var FsComponentService = /** @class */ (function () {
+    function FsComponentService() {
     }
-    FsTestService.prototype.sayHello = function () {
+    FsComponentService.prototype.sayHello = function () {
         console.log('hello');
     };
-    FsTestService = __decorate([
+    FsComponentService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [])
-    ], FsTestService);
-    return FsTestService;
+    ], FsComponentService);
+    return FsComponentService;
 }());
-exports.FsTestService = FsTestService;
+exports.FsComponentService = FsComponentService;
 
 
 /***/ }),
@@ -351,10 +485,31 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__angular_common__;
 
 /***/ }),
 
+/***/ "@angular/common/http":
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__angular_common_http__;
+
+/***/ }),
+
 /***/ "@angular/core":
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE__angular_core__;
+
+/***/ }),
+
+/***/ "rxjs/observable/forkJoin":
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_rxjs_observable_forkJoin__;
+
+/***/ }),
+
+/***/ "rxjs/operators":
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_rxjs_operators__;
 
 /***/ })
 
