@@ -8,27 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var forkJoin_1 = require("rxjs/observable/forkJoin");
 var operators_1 = require("rxjs/operators");
-var ElementsService = /** @class */ (function () {
-    function ElementsService(http, elements) {
+var FsExampleService = /** @class */ (function () {
+    function FsExampleService(http) {
         this.http = http;
-        this.elements = elements;
     }
-    ElementsService.prototype.getElementCode = function (name) {
+    FsExampleService.prototype.getElementCode = function (name) {
         var tapData = function (res) {
             return res.children.filter(function (child) { return child.name === name; })[0];
         };
-        return this.http.get('./src/components/components.json')
+        return this.http.get('components.json')
             .pipe(operators_1.map(tapData));
     };
-    ElementsService.prototype.getFileContents = function (name, paths) {
+    FsExampleService.prototype.getFileContents = function (name, paths) {
         var _this = this;
         var fileCode = paths.reduce(function (a, child) {
             if (RegExp(name).test(child.name)) {
@@ -40,12 +36,11 @@ var ElementsService = /** @class */ (function () {
         }, []);
         return forkJoin_1.forkJoin.apply(void 0, fileCode);
     };
-    ElementsService = __decorate([
+    FsExampleService = __decorate([
         core_1.Injectable(),
-        __param(1, core_1.Inject('elements')),
-        __metadata("design:paramtypes", [http_1.HttpClient, Object])
-    ], ElementsService);
-    return ElementsService;
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], FsExampleService);
+    return FsExampleService;
 }());
-exports.ElementsService = ElementsService;
-//# sourceMappingURL=elements.service.js.map
+exports.FsExampleService = FsExampleService;
+//# sourceMappingURL=fs-example.service.js.map

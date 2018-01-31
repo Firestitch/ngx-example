@@ -8,13 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var fs_input_component_component_1 = require("./components/fs-input-component/fs-input-component.component");
-var fs_radio_component_component_1 = require("./components/fs-radio-component/fs-radio-component.component");
-var fs_component_service_1 = require("./services/fs-component.service");
-var elements_service_1 = require("./services/elements.service");
-var elements_1 = require("./elements");
-var ɵ0 = elements_1.ELEMENTS;
-exports.ɵ0 = ɵ0;
+var material_module_1 = require("../playground/app/material.module");
+var fs_example_component_1 = require("./components/fs-example-component/fs-example.component");
+var fs_example_service_1 = require("./services/fs-example.service");
 var FsComponentModule = /** @class */ (function () {
     function FsComponentModule() {
     }
@@ -22,27 +18,25 @@ var FsComponentModule = /** @class */ (function () {
     FsComponentModule.forRoot = function () {
         return {
             ngModule: FsComponentModule_1,
-            providers: [fs_component_service_1.FsComponentService]
+            providers: [fs_example_service_1.FsExampleService]
         };
     };
     FsComponentModule = FsComponentModule_1 = __decorate([
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
+                material_module_1.AppMaterialModule
             ],
+            // do I need this?
             exports: [
-                fs_input_component_component_1.FsInputComponent,
-                fs_radio_component_component_1.FsRadioComponent
+                fs_example_component_1.FsExampleComponent
             ],
             entryComponents: [],
             declarations: [
-                fs_input_component_component_1.FsInputComponent,
-                fs_radio_component_component_1.FsRadioComponent
+                fs_example_component_1.FsExampleComponent
             ],
             providers: [
-                fs_component_service_1.FsComponentService,
-                { provide: 'elementService', useClass: elements_service_1.ElementsService },
-                { provide: 'elements', useValue: ɵ0 }
+                fs_example_service_1.FsExampleService
             ],
         })
     ], FsComponentModule);
@@ -50,4 +44,4 @@ var FsComponentModule = /** @class */ (function () {
     var FsComponentModule_1;
 }());
 exports.FsComponentModule = FsComponentModule;
-//# sourceMappingURL=fs-component.module.js.map
+//# sourceMappingURL=fs-example.module.js.map
