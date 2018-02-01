@@ -14,7 +14,7 @@ export class FsExampleService {
     const tapData = (res) => {
       return res.children.filter(child => child.name === name)[0];
     }
-    return this.http.get('components.json')
+    return this.http.get('assets/components.json')
       .pipe(map(tapData));
   }
   getFileContents(name, paths): Observable<Array<object>> {

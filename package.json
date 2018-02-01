@@ -7,16 +7,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean:build": "rimraf build",
+    "clean:demo": "rimraf demo",
     "clean:release": "rimraf release",
     "copy:build": "cpx -v \"src/**/*\" \"build\"",
     "copy:styles": "cpx -v \"build/**/*.css\" \"release\"",
     "copy:templates": "cpx -v \"build/**/*.html\" \"release\"",
-    "release": "npm-run-all -s clean:build clean:release copy:build build:sass release:replace-scss release:aot build:release copy:styles copy:templates release:minify clean:build",
+    "release": "npm-run-all -s clean:build clean:release copy:build build:sass release:replace-scss release:aot build:release copy:styles copy:templates release:minify clean:build build:demo",
     "release:aot": "ngc -p tsconfig.aot.json",
     "release:replace-scss": "node ./tools/replace-scss.js",
     "release:dev": "webpack --config=tools/webpack.dev.js --progress --profile --watch",
     "release:minify": "uglifyjs release/index.js --source-map --compress --mangle --screw-ie8 --output release/index.min.js",
     "build:release": "webpack --config=tools/webpack.release.js --progress --profile",
+    "build:demo": "npm run clean:demo && webpack --config=tools/webpack.demo.js --progress --profile",
     "build:sass": "node-sass -r build/ -o build/ || true",
     "serve": "webpack-dev-server --config=tools/webpack.playground.js --progress --profile --watch",
     "lint": "tslint 'src/**/*.ts' -p ./tslint.json"
@@ -37,6 +39,7 @@
     "@angular/material": "^5.0.4",
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
+    "angular2-highlight-js": "^6.0.1-alpha",
     "core-js": "^2.5.3",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.20"

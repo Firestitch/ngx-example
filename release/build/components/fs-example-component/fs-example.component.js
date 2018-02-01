@@ -12,16 +12,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 var fs_example_service_1 = require("../../services/fs-example.service");
+var angular2_highlight_js_1 = require("angular2-highlight-js");
 var FsExampleComponent = /** @class */ (function () {
-    function FsExampleComponent(http, exampleService) {
+    function FsExampleComponent(http, exampleService, highlightService) {
         this.http = http;
         this.exampleService = exampleService;
+        this.highlightService = highlightService;
         this.showTabs = false;
     }
     FsExampleComponent.prototype.ngOnInit = function () {
         var _this = this;
         var order = ['html', 'ts', 'css'];
+        // console.log(this.highlightService.highlight('html', `<h1></h1>`))
         this.exampleService.getElementCode(this.componentName).subscribe(function (elem) {
+            console.log(elem);
             _this.exampleService.getFileContents(_this.componentName, elem.children)
                 .subscribe(function (files) {
                 _this.tabs = files.sort(function (a, b) {
@@ -48,7 +52,8 @@ var FsExampleComponent = /** @class */ (function () {
             styleUrls: ['fs-example.component.css']
         }),
         __metadata("design:paramtypes", [http_1.HttpClient,
-            fs_example_service_1.FsExampleService])
+            fs_example_service_1.FsExampleService,
+            angular2_highlight_js_1.HighlightJsService])
     ], FsExampleComponent);
     return FsExampleComponent;
 }());

@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
 var material_module_1 = require("../playground/app/material.module");
+var angular2_highlight_js_1 = require("angular2-highlight-js");
 var fs_example_component_1 = require("./components/fs-example-component/fs-example.component");
 var fs_example_service_1 = require("./services/fs-example.service");
 var FsComponentModule = /** @class */ (function () {
@@ -25,7 +26,8 @@ var FsComponentModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                material_module_1.AppMaterialModule
+                material_module_1.AppMaterialModule,
+                angular2_highlight_js_1.HighlightJsModule
             ],
             // do I need this?
             exports: [
@@ -36,7 +38,8 @@ var FsComponentModule = /** @class */ (function () {
                 fs_example_component_1.FsExampleComponent
             ],
             providers: [
-                fs_example_service_1.FsExampleService
+                fs_example_service_1.FsExampleService,
+                angular2_highlight_js_1.HighlightJsService
             ],
         })
     ], FsComponentModule);

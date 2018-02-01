@@ -8,8 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app/material.module';
 import { FsExamplesComponent } from './app/components/fs-examples/fs-examples.component';
 
-import { FsInputComponent } from './app/components/fs-input-component/fs-input-component.component';
-import { FsRadioComponent } from './app/components/fs-radio-component/fs-radio-component.component';
+import { FsInputComponent } from './assets/components/fs-input-component/fs-input-component.component';
+import { FsRadioComponent } from './assets/components/fs-radio-component/fs-radio-component.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],

@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppMaterialModule } from '../playground/app/material.module';
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 import { FsExampleComponent } from './components/fs-example-component/fs-example.component';
 import { FsExampleService } from './services/fs-example.service';
@@ -8,7 +9,8 @@ import { FsExampleService } from './services/fs-example.service';
 @NgModule({
   imports: [
     CommonModule,
-    AppMaterialModule
+    AppMaterialModule,
+    HighlightJsModule
   ],
   // do I need this?
   exports: [
@@ -20,7 +22,8 @@ import { FsExampleService } from './services/fs-example.service';
     FsExampleComponent
   ],
   providers: [
-    FsExampleService
+    FsExampleService,
+    HighlightJsService
   ],
 })
 export class FsComponentModule {

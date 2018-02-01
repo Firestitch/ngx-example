@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { FsExampleService } from '../../services/fs-example.service'
+import { HighlightJsService } from 'angular2-highlight-js';
 
 interface ComponentCode {
   type: string;
@@ -17,14 +18,15 @@ interface ComponentCode {
 export class FsExampleComponent implements OnInit {
   public componentTitle: string;
   public showTabs: boolean = false;
-  public tabs: ComponentCode[];
+  tabs;
 
   @Input() title: string;
   @Input() componentName: string;
 
   constructor(
     private http: HttpClient,
-    private exampleService: FsExampleService 
+    private exampleService: FsExampleService,
+    private highlightService: HighlightJsService
   ) {}
 
   ngOnInit() {

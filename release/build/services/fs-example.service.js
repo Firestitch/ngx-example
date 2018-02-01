@@ -21,7 +21,7 @@ var FsExampleService = /** @class */ (function () {
         var tapData = function (res) {
             return res.children.filter(function (child) { return child.name === name; })[0];
         };
-        return this.http.get('components.json')
+        return this.http.get('assets/components.json')
             .pipe(operators_1.map(tapData));
     };
     FsExampleService.prototype.getFileContents = function (name, paths) {
