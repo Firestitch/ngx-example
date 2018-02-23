@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { FsExampleService } from '../../services/fs-example.service'
-import { HighlightJsService } from 'angular2-highlight-js';
+import { FsExampleService } from '../../services/fs-example.service';
 
 interface ComponentCode {
   type: string;
@@ -12,7 +11,7 @@ interface ComponentCode {
 @Component({
   selector: 'fs-example',
   templateUrl: 'fs-example.component.html',
-  styleUrls: ['fs-example.component.css']
+  styleUrls: ['fs-example.component.scss']
 })
 
 export class FsExampleComponent implements OnInit {
@@ -20,17 +19,18 @@ export class FsExampleComponent implements OnInit {
   public showTabs: boolean = false;
   tabs;
 
+  code = '';
+
   @Input() title: string;
   @Input() componentName: string;
 
   constructor(
     private http: HttpClient,
     private exampleService: FsExampleService,
-    private highlightService: HighlightJsService
   ) {}
 
   ngOnInit() {
-    let order = ['html', 'ts', 'css'];
+    const order = ['html', 'ts', 'css'];
 
     this.exampleService.getElementCode(this.componentName).subscribe((elem: any)  => {
       this.exampleService.getFileContents(this.componentName, elem.children)

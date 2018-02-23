@@ -14,14 +14,14 @@ export class FsExampleService {
     const tapData = (res) => {
       return res.children.filter(child => child.name === name)[0];
     }
-    return this.http.get('assets/components.json')
+    return this.http.get('assets/components/components.json')
       .pipe(map(tapData));
   }
   getFileContents(name, paths): Observable<Array<object>> {
     const fileCode = paths.reduce((a, child) => {
       if (RegExp(name).test(child.name)) {
-        const type = child.extension.replace(/\./,'');
-        const call = this.http.get(child.path, {responseType: 'text'}).pipe(
+        const type = child.extension.replace(/\./, '');
+        const call = this.http.get('assets/components/' + child.path, { responseType: 'text' }).pipe(
           map(code => ({type, code}))
         );
         return [...a, call];

@@ -9,7 +9,7 @@
     <mat-tab-group>
       <div *ngFor="let tab of tabs">
         <mat-tab label="{{tab.type | uppercase}}">
-          <pre class="example-code html">{{tab.code}}</pre>
+            <pre class="example-code hljs"><code mwlHighlightJs [source]="tab.code" [language]="tab.type"></code></pre>
         </mat-tab>
       </div>
     </mat-tab-group>

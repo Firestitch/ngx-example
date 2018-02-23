@@ -1,18 +1,37 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppMaterialModule } from '../playground/app/material.module';
-import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
-
 import { FsExampleComponent } from './components/fs-example-component/fs-example.component';
 import { FsExampleService } from './services/fs-example.service';
+import { MatIconModule, MatToolbarModule, MatTabsModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import * as hljs from 'highlight.js/lib/highlight';
+import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
+import * as hljsScss from 'highlight.js/lib/languages/scss';
+import * as hljsXml from 'highlight.js/lib/languages/xml';
+import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js';
+
+export function highlightJsFactory() {
+  hljs.registerLanguage('ts', hljsTypescript);
+  hljs.registerLanguage('scss', hljsScss);
+  hljs.registerLanguage('html', hljsXml);
+  return hljs;
+}
 
 @NgModule({
   imports: [
     CommonModule,
-    AppMaterialModule,
-    HighlightJsModule
+    MatIconModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    HttpClientModule,
+    HighlightJsModule.forRoot({
+      provide: HIGHLIGHT_JS,
+      useFactory: highlightJsFactory
+    })
   ],
-  // do I need this?
+
   exports: [
     FsExampleComponent
   ],
@@ -22,14 +41,13 @@ import { FsExampleService } from './services/fs-example.service';
     FsExampleComponent
   ],
   providers: [
-    FsExampleService,
-    HighlightJsService
+    FsExampleService
   ],
 })
-export class FsComponentModule {
+export class FsExampleModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: FsComponentModule,
+      ngModule: FsExampleModule,
       providers: [FsExampleService]
     };
   }
