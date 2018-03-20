@@ -1,6 +1,6 @@
 {
   "name": "@firestitch/example",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/fs-example"
@@ -37,9 +37,8 @@
     "serve": "webpack-dev-server --config=tools/webpack.playground.js --progress --profile --watch",
     "lint": "tslint 'src/**/*.ts' -p ./tslint.json"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@angular/material": "^5.0.4",
-    "angular-highlight-js": "^2.0.1",
     "core-js": "^2.5.3",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.20",
@@ -94,6 +93,7 @@
     "webpack-dev-server": "^2.11.0",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "webpack-merge": "^4.1.1",
-    "zone.js": "^0.8.20"
+    "zone.js": "^0.8.20",
+    "webpack-node-externals": "^1.6.0"
   }
 }

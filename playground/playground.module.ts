@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FsExampleModule } from '../src';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app/material.module';
-import { FsInputComponent } from './assets/components/fs-input-component/fs-input-component.component';
+import { InputExampleComponent } from './app/components/input-example/input-example.component';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -18,7 +18,7 @@ import { FsInputComponent } from './assets/components/fs-input-component/fs-inpu
   ],
   declarations: [
     AppComponent,
-    FsInputComponent
+    InputExampleComponent
   ],
   providers: [],
 })

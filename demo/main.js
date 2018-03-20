@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!../src/components/fs-example-component/fs-example.component.scss":
+/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true,\"absolute\":false,\"fail\":false,\"silent\":false,\"keepQuery\":false,\"attempts\":0,\"debug\":false,\"root\":null,\"includeRoot\":false}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!../src/components/fs-example-component/fs-example.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(true);
@@ -15,7 +15,7 @@ exports.push([module.i, "mat-toolbar {\n  color: rgba(0, 0, 0, .54);\n  font-siz
 
 /***/ }),
 
-/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../src/assets/styles.css":
+/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!./app/components/select-example/select-example.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(true);
@@ -23,25 +23,25 @@ exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/c
 
 
 // module
-exports.push([module.i, "", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"styles.css","sourceRoot":""}]);
+exports.push([module.i, "body {\n  color: pink;\n}\n\n", "", {"version":3,"sources":["C:/Projects/fs-example/playground/app/components/select-example/C:/Projects/fs-example/playground/app/components/select-example/playground/app/components/select-example/select-example.component.scss","C:/Projects/fs-example/playground/app/components/select-example/C:/Projects/fs-example/select-example.component.scss"],"names":[],"mappings":"AAAA;EACE,YAAA;CCCD","file":"select-example.component.scss","sourcesContent":["body {\n  color: pink;\n}\n","body {\n  color: pink;\n}\n\n"],"sourceRoot":""}]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "../src/assets/styles.css":
+/***/ "../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!./app/components/input-example/input-example.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
+exports = module.exports = __webpack_require__("../node_modules/css-loader/lib/css-base.js")(true);
+// imports
 
-        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../src/assets/styles.css");
 
-        if (typeof result === "string") {
-            module.exports = result;
-        } else {
-            module.exports = result.toString();
-        }
-    
+// module
+exports.push([module.i, "body {\n  color: blue;\n}", "", {"version":3,"sources":["C:/Projects/fs-example/playground/app/components/input-example/C:/Projects/fs-example/input-example.component.css"],"names":[],"mappings":"AAAA;EACE,YAAA;CACD","file":"input-example.component.css","sourcesContent":["body {\n  color: blue;\n}\n"],"sourceRoot":""}]);
+
+// exports
+
 
 /***/ }),
 
@@ -56,7 +56,7 @@ module.exports = "<div class=\"mat-elevation-z2\">\n  <mat-toolbar>\n      <span
 /***/ (function(module, exports, __webpack_require__) {
 
 
-        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!../src/components/fs-example-component/fs-example.component.scss");
+        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true,\"absolute\":false,\"fail\":false,\"silent\":false,\"keepQuery\":false,\"attempts\":0,\"debug\":false,\"root\":null,\"includeRoot\":false}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!../src/components/fs-example-component/fs-example.component.scss");
 
         if (typeof result === "string") {
             module.exports = result;
@@ -94,7 +94,7 @@ var FsExampleComponent = /** @class */ (function () {
     }
     FsExampleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var order = ['html', 'ts', 'css'];
+        var order = ['html', 'ts', 'css', 'scss'];
         this.exampleService.getElementCode(this.componentName).subscribe(function (elem) {
             _this.exampleService.getFileContents(_this.componentName, elem.children)
                 .subscribe(function (files) {
@@ -143,7 +143,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__("../src/assets/styles.css");
 var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
 var common_1 = __webpack_require__("../node_modules/@angular/common/esm2015/common.js");
 var fs_example_component_1 = __webpack_require__("../src/components/fs-example-component/fs-example.component.ts");
@@ -153,11 +152,13 @@ var http_1 = __webpack_require__("../node_modules/@angular/common/esm2015/http.j
 var hljs = __webpack_require__("../node_modules/highlight.js/lib/highlight.js");
 var hljsTypescript = __webpack_require__("../node_modules/highlight.js/lib/languages/typescript.js");
 var hljsScss = __webpack_require__("../node_modules/highlight.js/lib/languages/scss.js");
+var hljsCss = __webpack_require__("../node_modules/highlight.js/lib/languages/css.js");
 var hljsXml = __webpack_require__("../node_modules/highlight.js/lib/languages/xml.js");
 var angular_highlight_js_1 = __webpack_require__("../node_modules/angular-highlight-js/dist/esm/src/index.js");
 function highlightJsFactory() {
     hljs.registerLanguage('ts', hljsTypescript);
     hljs.registerLanguage('scss', hljsScss);
+    hljs.registerLanguage('css', hljsCss);
     hljs.registerLanguage('html', hljsXml);
     return hljs;
 }
@@ -303,7 +304,7 @@ webpackEmptyAsyncContext.id = "../tools lazy recursive";
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <h1>Examples</h1>\n  <div class=\"example\">\n      <p>This is some text that could go above, and maybe below</p>\n      <fs-example title=\"Input Component\" componentName=\"fs-input-component\">\n          <fs-input-component></fs-input-component>\n      </fs-example>\n  </div>\n"
+module.exports = "  <h1>Examples</h1>\n  <div class=\"example\">\n      <p>This is some text that could go above, and maybe below</p>\n      <fs-example title=\"Input Example\" componentName=\"input-example\">\n        <input-example></input-example>\n    </fs-example>\n\n    <fs-example title=\"Select Example\" componentName=\"select-example\">\n      <select-example></select-example>\n  </fs-example>\n  </div>\n"
 
 /***/ }),
 
@@ -332,6 +333,118 @@ var AppComponent = /** @class */ (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+
+
+/***/ }),
+
+/***/ "./app/components/input-example/input-example.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+
+        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!./app/components/input-example/input-example.component.css");
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    
+
+/***/ }),
+
+/***/ "./app/components/input-example/input-example.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "input-example.component.html\n"
+
+/***/ }),
+
+/***/ "./app/components/input-example/input-example.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
+var InputExampleComponent = /** @class */ (function () {
+    function InputExampleComponent() {
+    }
+    InputExampleComponent = __decorate([
+        core_1.Component({
+            selector: 'input-example',
+            template: __webpack_require__("./app/components/input-example/input-example.component.html"),
+            styles: [__webpack_require__("./app/components/input-example/input-example.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], InputExampleComponent);
+    return InputExampleComponent;
+}());
+exports.InputExampleComponent = InputExampleComponent;
+
+
+/***/ }),
+
+/***/ "./app/components/select-example/select-example.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "select-example.component.html\n"
+
+/***/ }),
+
+/***/ "./app/components/select-example/select-example.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+
+        var result = __webpack_require__("../node_modules/css-loader/index.js?{\"sourceMap\":true}!../node_modules/postcss-loader/lib/index.js?{\"sourceMap\":true}!../node_modules/resolve-url-loader/index.js?{\"sourceMap\":true}!../node_modules/sass-loader/lib/loader.js?{\"sourceMap\":true}!./app/components/select-example/select-example.component.scss");
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    
+
+/***/ }),
+
+/***/ "./app/components/select-example/select-example.component.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
+var SelectExampleComponent = /** @class */ (function () {
+    function SelectExampleComponent() {
+    }
+    SelectExampleComponent = __decorate([
+        core_1.Component({
+            selector: 'select-example',
+            template: __webpack_require__("./app/components/select-example/select-example.component.html"),
+            styles: [__webpack_require__("./app/components/select-example/select-example.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SelectExampleComponent);
+    return SelectExampleComponent;
+}());
+exports.SelectExampleComponent = SelectExampleComponent;
 
 
 /***/ }),
@@ -399,46 +512,6 @@ var AppMaterialModule = /** @class */ (function () {
     return AppMaterialModule;
 }());
 exports.AppMaterialModule = AppMaterialModule;
-
-
-/***/ }),
-
-/***/ "./assets/components/fs-input-component/fs-input-component.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<h1>Component template</h1>\r\nfs-input-component.component.html"
-
-/***/ }),
-
-/***/ "./assets/components/fs-input-component/fs-input-component.component.ts":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__("../node_modules/@angular/core/esm2015/core.js");
-var FsInputComponent = /** @class */ (function () {
-    function FsInputComponent() {
-    }
-    FsInputComponent = __decorate([
-        core_1.Component({
-            selector: 'fs-input-component',
-            template: __webpack_require__("./assets/components/fs-input-component/fs-input-component.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], FsInputComponent);
-    return FsInputComponent;
-}());
-exports.FsInputComponent = FsInputComponent;
 
 
 /***/ }),
@@ -512,7 +585,8 @@ var platform_browser_1 = __webpack_require__("../node_modules/@angular/platform-
 var src_1 = __webpack_require__("../src/index.ts");
 var animations_1 = __webpack_require__("../node_modules/@angular/platform-browser/esm2015/animations.js");
 var material_module_1 = __webpack_require__("./app/material.module.ts");
-var fs_input_component_component_1 = __webpack_require__("./assets/components/fs-input-component/fs-input-component.component.ts");
+var input_example_component_1 = __webpack_require__("./app/components/input-example/input-example.component.ts");
+var select_example_component_1 = __webpack_require__("./app/components/select-example/select-example.component.ts");
 var PlaygroundModule = /** @class */ (function () {
     function PlaygroundModule() {
     }
@@ -527,7 +601,8 @@ var PlaygroundModule = /** @class */ (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                fs_input_component_component_1.FsInputComponent
+                input_example_component_1.InputExampleComponent,
+                select_example_component_1.SelectExampleComponent
             ],
             providers: [],
         })

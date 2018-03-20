@@ -17,9 +17,8 @@ interface ComponentCode {
 export class FsExampleComponent implements OnInit {
   public componentTitle: string;
   public showTabs: boolean = false;
-  tabs;
-
-  code = '';
+  public tabs;
+  public code = '';
 
   @Input() title: string;
   @Input() componentName: string;
@@ -30,7 +29,7 @@ export class FsExampleComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const order = ['html', 'ts', 'css'];
+    const order = ['html', 'ts', 'css', 'scss'];
 
     this.exampleService.getElementCode(this.componentName).subscribe((elem: any)  => {
       this.exampleService.getFileContents(this.componentName, elem.children)
