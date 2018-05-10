@@ -1,3 +1,4 @@
+
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FsExampleService } from './services/fs-example.service';
@@ -5,6 +6,7 @@ import { MatIconModule, MatToolbarModule, MatTabsModule, MatCardModule, MatButto
 import { HttpClientModule } from '@angular/common/http';
 import { FsExampleHighlightDirective } from './directives/fs-example-highlight.directive';
 import { FsExampleComponent } from './components/fs-example/fs-example.component';
+import { FsExampleHighlightComponent } from './components/fs-example-highlight/fs-example-highlight.component';
 import { FsExamplesComponent } from './components/fs-examples/fs-examples.component';
 import { FsIFrameModule } from '@firestitch/iframe';
 
@@ -22,13 +24,16 @@ import { FsIFrameModule } from '@firestitch/iframe';
 
   exports: [
     FsExampleComponent,
-    FsExamplesComponent
+    FsExamplesComponent,
+    FsExampleHighlightComponent,
+    FsExampleHighlightDirective
   ],
   entryComponents: [
   ],
   declarations: [
     FsExampleComponent,
     FsExamplesComponent,
+    FsExampleHighlightComponent,
     FsExampleHighlightDirective
   ],
   providers: [

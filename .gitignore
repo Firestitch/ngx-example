@@ -41,3 +41,5 @@ dist/*
 /dll
 /package-lock.json
 /package
+/docs
+/demo
