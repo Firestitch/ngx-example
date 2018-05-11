@@ -10,21 +10,21 @@ import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'fs-examples',
-  templateUrl: 'fs-examples.component.html'
+  templateUrl: 'fs-examples.component.html',
+  styleUrls: [ 'fs-examples.component.scss' ]
 })
 export class FsExamplesComponent implements OnInit, AfterContentChecked {
   @Input() public title: string;
+  @Input() public npmUrl: string;
+  @Input() public githubUrl: string;
   @Input('name') public submoduleName: string;
 
   public examples: any = [];
-
   public loaded = false;
-
   private _submoduleUrl;
 
   constructor(public el: ElementRef,
-              private sanitizer: DomSanitizer) {
-  }
+              private sanitizer: DomSanitizer) {}
 
   public ngOnInit() {
     this._submoduleUrl = this.sanitizer

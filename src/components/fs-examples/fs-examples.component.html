@@ -1,4 +1,11 @@
-<div class="example-title">{{title}}</div>
+
+<div class="details">
+  <a [href]="npmUrl" target="_blank" *ngIf="npmUrl" class="npm"></a>
+  <a [href]="githubUrl" target="_blank" *ngIf="githubUrl" class="github"></a>
+</div>
+<div class="examples-h1">{{title}}</div>
+
+<ng-content select="[fs-examples-body]"></ng-content>
 <mat-tab-group>
   <mat-tab label="Examples">
     <div class="example-container">
@@ -7,8 +14,8 @@
           <a href="javascript:;" (click)="scrollTo(example)" fsIFrameScrollTo>{{example.title}}</a>
         </li>
       </ul>
-      <div class="examples-body">
-        <ng-content></ng-content>
+      <div class="examples">
+          <ng-content select="fs-example"></ng-content>
       </div>
     </div>
   </mat-tab>
@@ -16,6 +23,9 @@
     <div class="iframe-container">
       <iframe class="iframe-example ng-star-inserted" [src]="submoduleUrl"></iframe>
     </div>
+  </mat-tab>
+  <mat-tab label="Install">
+    <ng-content select="[fs-examples-install]"></ng-content>
   </mat-tab>
 </mat-tab-group>
 <fs-iframe></fs-iframe>
