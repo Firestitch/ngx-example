@@ -4,9 +4,11 @@ import {
   ElementRef,
   Input,
   OnInit,
-  ViewChild
+  ViewChild,
+  Inject
 } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, DOCUMENT} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'fs-examples',
@@ -24,12 +26,12 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   private _submoduleUrl;
 
   constructor(public el: ElementRef,
-              private sanitizer: DomSanitizer) {}
+              private sanitizer: DomSanitizer,
+              @Inject(DOCUMENT) private document) {}
 
   public ngOnInit() {
-    this._submoduleUrl = this.sanitizer
-      .bypassSecurityTrustResourceUrl(`https://${this.submoduleName}.components.firestitch.com/docs`);
-
+    const url = `${this.document.location.protocol}://${this.document.location.hostname}/docs`;
+    this._submoduleUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     this.loaded = true;
   }
 
