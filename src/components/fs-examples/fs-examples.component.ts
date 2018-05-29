@@ -30,7 +30,7 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
               @Inject(DOCUMENT) private document) {}
 
   public ngOnInit() {
-    const url = `${this.document.location.protocol}://${this.document.location.hostname}/docs`;
+    const url = `${this.document.origin}/docs`;
     this._submoduleUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     this.loaded = true;
   }

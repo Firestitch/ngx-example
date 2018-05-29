@@ -1,6 +1,6 @@
 {
   "name": "@firestitch/example",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/fs-example"
