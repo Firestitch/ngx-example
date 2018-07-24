@@ -22,7 +22,7 @@ export class FsExampleService {
       if (RegExp(name).test(child.name)) {
         const type = child.extension.replace(/\./, '');
         const call = this.http.get('assets/components/' + child.path, { responseType: 'text' }).pipe(
-          map(code => ({type, code}))
+          map(code => ({type, code, name: child.name}))
         );
         return [...a, call];
       }

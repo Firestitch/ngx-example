@@ -8,7 +8,7 @@
   <div *ngIf="showTabs">
     <mat-tab-group>
       <div *ngFor="let tab of tabs">
-        <mat-tab label="{{tab.type | uppercase}}">
+        <mat-tab label="{{tab.name | uppercase}}">
             <fs-example-highlight [source]="tab.code" [language]="tab.type"></fs-example-highlight>
         </mat-tab>
       </div>

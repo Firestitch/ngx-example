@@ -16,12 +16,13 @@ interface ComponentCode {
 
 export class FsExampleComponent implements OnInit {
   public componentTitle: string;
-  public showTabs: boolean = false;
+  public showTabs: Boolean = false;
   public tabs;
   public code = '';
 
   @Input() title: string;
   @Input() componentName: string;
+  @Input() componentNames: string;
 
   constructor(
     private http: HttpClient,
@@ -37,8 +38,31 @@ export class FsExampleComponent implements OnInit {
           this.tabs = files.sort((a: any, b: any) => {
             return order.indexOf(a.type) - order.indexOf(b.type)
           });
+          this.tabs.forEach((tab) => {
+            tab.name = tab.type;
+          });
         });
     });
+
+    if (this.componentNames) {
+
+      this.componentNames.split(',').forEach((name) => {
+
+        this.exampleService.getElementCode(name).subscribe((elem: any)  => {
+          this.exampleService.getFileContents(this.componentName, elem.children)
+            .subscribe((files: any) => {
+
+              const tabs = files.sort((a: any, b: any) => {
+                return order.indexOf(a.type) - order.indexOf(b.type)
+              });
+
+              tabs.forEach((tab) => {
+                this.tabs.push(tab);
+              });
+            });
+        });
+      });
+    }
   }
   toggleContent() {
     this.showTabs = !this.showTabs;
