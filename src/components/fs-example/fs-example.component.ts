@@ -1,12 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { FsExampleService } from '../../services/fs-example.service';
 
-interface ComponentCode {
-  type: string;
-  code: string
-}
 
 @Component({
   selector: 'fs-example',

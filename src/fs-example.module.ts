@@ -19,7 +19,7 @@ import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
     MatCardModule,
     MatButtonModule,
     HttpClientModule,
-    FsIFrameModule
+    FsIFrameModule.forRoot()
   ],
 
   exports: [
@@ -53,8 +53,6 @@ export class FsExampleModule {
 
   constructor(@Inject('FS_EXAMPLE_CONFIG') private config,
               private fsIFrame: FsIFrame) {
-
-                debugger;
 
     if (!config) {
       config = {};
