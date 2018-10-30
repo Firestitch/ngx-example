@@ -12,7 +12,7 @@ import { InputExampleComponent } from './app/components/input-example/input-exam
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
-    FsExampleModule,
+    FsExampleModule.forRoot({ iframeObserveBody: true }),
     BrowserAnimationsModule,
     AppMaterialModule
   ],

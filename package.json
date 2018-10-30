@@ -1,6 +1,6 @@
 {
   "name": "@firestitch/example",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/fs-example"
@@ -75,10 +75,12 @@
     "webpack-merge": "^4.1.1",
     "zone.js": "^0.8.20",
     "webpack-node-externals": "^1.6.0",
-    "replace-in-file": "^3.4.0"
+    "replace-in-file": "^3.4.0",
+    "node-sass-tilde-importer": "^1.0.2",
+    "node-dir": "^0.1.17"
   },
   "dependencies": {
-    "@firestitch/iframe": ">=0.1.5",
+    "@firestitch/iframe": "^0.1.9",
     "highlight.js": ">=9.9.0"
   }
 }
