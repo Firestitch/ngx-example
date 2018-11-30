@@ -1,19 +1,19 @@
 <div class="mat-elevation-z2">
   <mat-toolbar>
-      <span>{{title}}</span>
-      <button mat-icon-button (click)="toggleContent()">
-        <mat-icon>code</mat-icon>
-      </button>
+    <span>{{title}}</span>
+    <button mat-icon-button (click)="toggleContent()">
+      <mat-icon>code</mat-icon>
+    </button>
   </mat-toolbar>
   <div *ngIf="showTabs">
     <mat-tab-group>
       <div *ngFor="let tab of tabs">
         <mat-tab label="{{tab.name | uppercase}}">
-            <fs-example-highlight [source]="tab.code" [language]="tab.type"></fs-example-highlight>
+          <fs-example-highlight [source]="tab.code" [language]="tab.type"></fs-example-highlight>
         </mat-tab>
       </div>
     </mat-tab-group>
-</div>
+  </div>
   <mat-card class="mat-elevation-z0">
     <div #items>
       <ng-content></ng-content>

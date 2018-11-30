@@ -1,1 +1,8 @@
-<pre class="hljs"><code fsExampleHighlight [source]="source" [language]="language"></code></pre>
+<div class="highlight-content">
+  <button mat-icon-button type="button" class="copy"
+          title="Copy example source" aria-label="Copy example source to clipboard"
+          (click)="copySource()">
+    <mat-icon>content_copy</mat-icon>
+  </button>
+  <pre class="hljs"><code fsExampleHighlight [source]="source" [language]="language"></code></pre>
+</div>
