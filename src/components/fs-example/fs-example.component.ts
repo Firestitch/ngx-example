@@ -25,7 +25,8 @@ export class FsExampleComponent {
 
   toggleContent() {
     this.showTabs = !this.showTabs;
-
+    this.tabs = [];
+    
     if (this.showTabs) {
       this._loadComponents();
     }
