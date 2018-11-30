@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FsExampleService } from '../../services/fs-example.service';
 
@@ -9,10 +9,9 @@ import { FsExampleService } from '../../services/fs-example.service';
   styleUrls: ['fs-example.component.scss']
 })
 
-export class FsExampleComponent implements OnInit {
-  public componentTitle: string;
+export class FsExampleComponent {
   public showTabs: Boolean = false;
-  public tabs;
+  public tabs = [];
   public code = '';
 
   @Input() title: string;
@@ -24,42 +23,45 @@ export class FsExampleComponent implements OnInit {
     private exampleService: FsExampleService,
   ) {}
 
-  ngOnInit() {
-    const order = ['html', 'ts', 'css', 'scss'];
+  toggleContent() {
+    this.showTabs = !this.showTabs;
 
-    this.exampleService.getElementCode(this.componentName).subscribe((elem: any)  => {
-      this.exampleService.getFileContents(this.componentName, elem.children)
-        .subscribe((files: any) => {
-          this.tabs = files.sort((a: any, b: any) => {
-            return order.indexOf(a.type) - order.indexOf(b.type)
-          });
-          this.tabs.forEach((tab) => {
-            tab.name = tab.type;
-          });
+    if (this.showTabs) {
+      this._loadComponents();
+    }
+  }
+
+  private _loadComponents() {
+    this.exampleService.getFileContents(this.componentName)
+      .subscribe((files: any) => {
+
+        files.forEach((file) => {
+          file.name = file.type;
         });
-    });
+
+        this._filesToTabs(files);
+      });
 
     if (this.componentNames) {
 
       this.componentNames.split(',').forEach((name) => {
-
-        this.exampleService.getElementCode(name).subscribe((elem: any)  => {
-          this.exampleService.getFileContents(this.componentName, elem.children)
-            .subscribe((files: any) => {
-
-              const tabs = files.sort((a: any, b: any) => {
-                return order.indexOf(a.type) - order.indexOf(b.type)
-              });
-
-              tabs.forEach((tab) => {
-                this.tabs.push(tab);
-              });
-            });
-        });
+        this.exampleService.getFileContents(name)
+          .subscribe((files: any) => {
+            this._filesToTabs(files);
+          });
       });
     }
   }
-  toggleContent() {
-    this.showTabs = !this.showTabs;
+
+  private _filesToTabs(files) {
+    const order = ['html', 'ts', 'css', 'scss'];
+
+    const tabs = files.sort((a: any, b: any) => {
+      return order.indexOf(a.type) - order.indexOf(b.type)
+    });
+
+    tabs.forEach((tab) => {
+      this.tabs.push(tab);
+    });
   }
 }

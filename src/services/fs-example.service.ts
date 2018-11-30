@@ -1,34 +1,51 @@
-import { Injectable, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
 import { forkJoin } from 'rxjs/observable/forkJoin';
-import { catchError, map, tap, reduce } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable()
 export class FsExampleService {
 
+  public static readonly EXAMPLE_PATH_PREFIX = 'assets/components';
+
   constructor(private http: HttpClient) { }
 
-  getElementCode(name): Observable<object> {
-    const tapData = (res) => {
-      return res.children.filter(child => child.name === name)[0];
-    }
-    return this.http.get('assets/components/components.json')
-      .pipe(map(tapData));
-  }
-  getFileContents(name, paths): Observable<Array<object>> {
-    const fileCode = paths.reduce((a, child) => {
-      if (RegExp(name).test(child.name)) {
-        const type = child.extension.replace(/\./, '');
-        const call = this.http.get('assets/components/' + child.path, { responseType: 'text' }).pipe(
-          map(code => ({type, code, name: child.name}))
-        );
-        return [...a, call];
-      }
-      return a
+  getFileContents(name): Observable<{}[]> {
+    const fileCodeRequests = this._paths(name).reduce((acc, file: any) => {
+      const request = this.http.get(file.path, { responseType: 'text' }).pipe(
+        map(code => ({ type: file.type, name: file.name, code })),
+        catchError((error) => of(null)),
+      );
+
+      acc.push(request);
+
+      return acc;
     }, []);
 
-    return forkJoin(...fileCode);
+    return forkJoin(...fileCodeRequests).pipe(
+      map((files) => files.filter((file) => !!file)),
+    );
+  }
+
+  private _paths(name) {
+    return [
+      {
+        type: 'ts',
+        name: `${name}.component.ts`,
+        path: `${FsExampleService.EXAMPLE_PATH_PREFIX}/${name}/${name}.component.ts`,
+      },
+      {
+        type: 'html',
+        name: `${name}.component.html`,
+        path: `${FsExampleService.EXAMPLE_PATH_PREFIX}/${name}/${name}.component.html`,
+      },
+      {
+        type: 'scss',
+        name: `${name}.component.scss`,
+        path: `${FsExampleService.EXAMPLE_PATH_PREFIX}/${name}/${name}.component.scss`,
+      },
+    ]
   }
 }
