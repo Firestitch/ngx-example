@@ -15,6 +15,7 @@ export class FsExampleComponent {
   public code = '';
 
   @Input() title: string;
+  @Input() componentPath: string;
   @Input() componentName: string;
   @Input() componentNames: string;
 
@@ -33,7 +34,7 @@ export class FsExampleComponent {
   }
 
   private _loadComponents() {
-    this.exampleService.getFileContents(this.componentName)
+    this.exampleService.getFileContents(this.componentPath, this.componentName)
       .subscribe((files: any) => {
 
         files.forEach((file) => {
@@ -46,7 +47,7 @@ export class FsExampleComponent {
     if (this.componentNames) {
 
       this.componentNames.split(',').forEach((name) => {
-        this.exampleService.getFileContents(name)
+        this.exampleService.getFileContents(this.componentPath, name)
           .subscribe((files: any) => {
             this._filesToTabs(files);
           });
