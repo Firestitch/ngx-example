@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CopierService } from '../../services/copier';
 import { FsMessage } from '@firestitch/message';
+import { CopierService } from '../../services/copier';
 
 @Component({
   selector: 'fs-example-highlight',

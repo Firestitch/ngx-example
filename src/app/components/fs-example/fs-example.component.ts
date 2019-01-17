@@ -24,7 +24,7 @@ export class FsExampleComponent {
     private exampleService: FsExampleService,
   ) {}
 
-  toggleContent() {
+  public toggleContent() {
     this.showTabs = !this.showTabs;
     this.tabs = [];
     

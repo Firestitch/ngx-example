@@ -4,10 +4,10 @@ import {
   ElementRef,
   Input,
   OnInit,
-  ViewChild,
   Inject
 } from '@angular/core';
-import {DomSanitizer, DOCUMENT} from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -25,9 +25,15 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   public loaded = false;
   private _submoduleUrl;
 
-  constructor(public el: ElementRef,
-              private sanitizer: DomSanitizer,
-              @Inject(DOCUMENT) private document) {}
+  constructor(
+    public el: ElementRef,
+    private sanitizer: DomSanitizer,
+    @Inject(DOCUMENT) private document
+  ) {}
+
+  get submoduleUrl() {
+    return this._submoduleUrl;
+  }
 
   public ngOnInit() {
     const url = `${this.document.origin}/docs`;
@@ -37,10 +43,6 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
 
   public ngAfterContentChecked() {
     this.getExampleElements()
-  }
-
-  get submoduleUrl() {
-    return this._submoduleUrl;
   }
 
   public scrollTo(example) {

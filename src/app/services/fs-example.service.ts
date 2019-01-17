@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { forkJoin } from 'rxjs/observable/forkJoin';
-import { of } from 'rxjs/observable/of';
+
+import { of, forkJoin, Observable } from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
+
 
 @Injectable()
 export class FsExampleService {
@@ -25,7 +25,7 @@ export class FsExampleService {
     }, []);
 
     return forkJoin(...fileCodeRequests).pipe(
-      map((files) => files.filter((file) => !!file)),
+      map((files: any) => files.filter((file) => !!file)),
     );
   }
 

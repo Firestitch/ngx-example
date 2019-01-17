@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, SimpleChanges, Inject } from '@angular/core';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as hljs from 'highlight.js/lib/highlight';
 import * as hljsTypescript from 'highlight.js/lib/languages/typescript';
 import * as hljsScss from 'highlight.js/lib/languages/scss';
