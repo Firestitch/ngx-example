@@ -1,6 +1,6 @@
 {
   "name": "@firestitch/example",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/fs-example"
@@ -39,8 +39,8 @@
     "@angular/material": "^7.2.1",
     "@angular/platform-browser": "^7.2.1",
     "@angular/platform-browser-dynamic": "^7.2.1",
-    "@firestitch/iframe": "^0.1.14",
-    "@firestitch/message": "^0.1.23",
+    "@firestitch/iframe": "^0.2.0",
+    "@firestitch/message": "^0.1.24",
     "codelyzer": "^4.0.2",
     "compodoc": "^0.0.41",
     "cpx": "^1.5.0",
@@ -51,7 +51,6 @@
     "ngx-toastr": "^9.1.1",
     "npm-run-all": "^4.1.5",
     "rxjs": "^6.3.3",
-    "rxjs-compat": "^6.3.3",
     "tsickle": "^0.34.0",
     "tslint": "^5.9.1",
     "typescript": "^3.1.6",
@@ -60,5 +59,12 @@
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "zone.js": "^0.8.28"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@firestitch/message": ">=0.1",
+    "highlight.js": ">=9.9.0"
+  },
+  "peerDependencies": {
+    "@firestitch/message": ">=0.1",
+    "highlight.js": ">=9.9.0"
+  }
 }
