@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Firestitch/fs-example"
+    "url": "https://github.com/Firestitch/ngx-example"
   },
   "author": {
     "name": "Firestitch",
@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Firestitch/fs-example/issues"
+    "url": "https://github.com/Firestitch/ngx-example/issues"
   },
   "main": "package/index.js",
   "typings": "package/index.d.ts",
