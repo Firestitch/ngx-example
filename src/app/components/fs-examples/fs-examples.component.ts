@@ -4,9 +4,7 @@ import {
   ElementRef,
   Input,
   OnInit,
-  Inject
 } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 import { DomSanitizer } from '@angular/platform-browser';
 
 
@@ -28,7 +26,6 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   constructor(
     public el: ElementRef,
     private sanitizer: DomSanitizer,
-    @Inject(DOCUMENT) private document
   ) {}
 
   get submoduleUrl() {
@@ -36,7 +33,7 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   }
 
   public ngOnInit() {
-    const url = `${this.document.origin}/docs`;
+    const url = `${window.location.origin}/docs`;
     this._submoduleUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     this.loaded = true;
   }
