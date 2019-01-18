@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule, MatToolbarModule, MatTabsModule, MatCardModule, MatButtonModule } from '@angular/material';
 
 import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
-import { FsMessageModule } from '@firestitch/message';
 
 import { FsExampleComponent } from './components/fs-example/fs-example.component';
 import { FsExampleHighlightComponent } from './components/fs-example-highlight/fs-example-highlight.component';
@@ -24,7 +23,6 @@ import { CopierService } from './services/copier';
     MatButtonModule,
     HttpClientModule,
     FsIFrameModule.forRoot(),
-    FsMessageModule,
   ],
 
   exports: [

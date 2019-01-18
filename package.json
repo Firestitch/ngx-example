@@ -60,10 +60,10 @@
   },
   "dependencies": {
     "highlight.js": ">=9.9.0",
-    "@firestitch/message": "^0.2.0"
+    "ngx-toastr": ">=9.1"
   },
   "peerDependencies": {
-    "@firestitch/message": ">=0.1",
+    "ngx-toastr": ">=9.1",
     "highlight.js": ">=9.9.0"
   }
 }
