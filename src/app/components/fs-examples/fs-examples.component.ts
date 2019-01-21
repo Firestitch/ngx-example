@@ -19,6 +19,12 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   @Input() public githubUrl: string;
   @Input('name') public submoduleName: string;
 
+  @Input('config') set config(config) {
+    this.title = config.title;
+    this.npmUrl = config.npmUrl;
+    this.githubUrl = config.githubUrl;
+  }
+
   public examples: any = [];
   public loaded = false;
   private _submoduleUrl;

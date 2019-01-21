@@ -1,6 +1,7 @@
 {
   "name": "@firestitch/example",
-  "version": "0.5.2",
+  "title": "Example",
+  "version": "0.6.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-example"
@@ -60,7 +61,8 @@
   },
   "dependencies": {
     "highlight.js": ">=9.9.0",
-    "ngx-toastr": ">=9.1"
+    "ngx-toastr": ">=9.1",
+    "@firestitch/iframe": "^0.2.0"
   },
   "peerDependencies": {
     "ngx-toastr": ">=9.1",
