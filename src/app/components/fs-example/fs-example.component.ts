@@ -14,7 +14,7 @@ export class FsExampleComponent {
   public tabs = [];
   public code = '';
 
-  @Input() title: string;
+  @Input() name: string;
   @Input() componentPath: string;
   @Input() componentName: string;
   @Input() componentNames: string;
@@ -27,7 +27,7 @@ export class FsExampleComponent {
   public toggleContent() {
     this.showTabs = !this.showTabs;
     this.tabs = [];
-    
+
     if (this.showTabs) {
       this._loadComponents();
     }
