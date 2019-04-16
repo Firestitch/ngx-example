@@ -1,9 +1,11 @@
-
-<div class="details">
-  <a [href]="npmUrl" target="_blank" *ngIf="npmUrl" class="npm"></a>
-  <a [href]="githubUrl" target="_blank" *ngIf="githubUrl" class="github"></a>
+<div class="example-header">
+  <div class="title examples-h1">{{title}}</div>
+  <div class="content"><ng-content select="[fs-examples-extra]"></ng-content></div>
+  <div class="details">
+    <a [href]="npmUrl" target="_blank" *ngIf="npmUrl" class="npm"></a>
+    <a [href]="githubUrl" target="_blank" *ngIf="githubUrl" class="github"></a>
+  </div>
 </div>
-<div class="examples-h1">{{title}}</div>
 
 <ng-content select="[fs-examples-body]"></ng-content>
 <mat-tab-group>

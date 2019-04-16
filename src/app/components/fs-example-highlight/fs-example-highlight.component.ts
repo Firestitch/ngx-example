@@ -8,7 +8,6 @@ import { CopierService } from '../../services/copier';
   templateUrl: 'fs-example-highlight.component.html',
   styleUrls: ['fs-example-highlight.component.scss']
 })
-
 export class FsExampleHighlightComponent {
   @Input() language: string;
   @Input() source: string;

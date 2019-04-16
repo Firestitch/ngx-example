@@ -1,9 +1,12 @@
 <div class="mat-elevation-z2">
   <mat-toolbar>
     <span>{{name}}</span>
-    <button mat-icon-button (click)="toggleContent()">
-      <mat-icon>code</mat-icon>
-    </button>
+    <div class="container">
+      <ng-content select="[fs-example-actions]"></ng-content>
+      <button mat-icon-button (click)="toggleContent()">
+        <mat-icon>code</mat-icon>
+      </button>
+    </div>
   </mat-toolbar>
   <div *ngIf="showTabs">
     <mat-tab-group>
