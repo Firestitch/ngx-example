@@ -8,19 +8,28 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './material.module';
 import { InputExampleComponent } from './components/input-example/input-example.component';
+import { ConfigureComponent } from './components/configure';
+import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   bootstrap: [ AppComponent ],
   imports: [
     BrowserModule,
+    FormsModule,
     FsExampleModule.forRoot({ iframeObserveBody: true }),
     ToastrModule.forRoot({ preventDuplicates: true }),
     BrowserAnimationsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    FlexLayoutModule
+  ],
+  entryComponents: [
+    ConfigureComponent
   ],
   declarations: [
     AppComponent,
-    InputExampleComponent
+    InputExampleComponent,
+    ConfigureComponent
   ],
   providers: [],
 })

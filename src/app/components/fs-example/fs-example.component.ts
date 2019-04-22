@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FsExampleService } from '../../services/fs-example.service';
+import { FsDrawerAction, FsDrawerService } from '@firestitch/drawer';
 
 
 @Component({
@@ -13,6 +14,9 @@ export class FsExampleComponent {
   public showTabs: Boolean = false;
   public tabs = [];
   public code = '';
+  public configureComponent;
+  public configureData = {};
+  public drawerRef;
 
   @Input() name: string;
   @Input() componentPath: string;
@@ -22,6 +26,7 @@ export class FsExampleComponent {
   constructor(
     private http: HttpClient,
     private exampleService: FsExampleService,
+    public drawer: FsDrawerService
   ) {}
 
   public toggleContent() {
@@ -31,6 +36,36 @@ export class FsExampleComponent {
     if (this.showTabs) {
       this._loadComponents();
     }
+  }
+
+  public configureClick() {
+
+    if (this.drawerRef) {
+      this.drawerRef.close();
+    }
+
+    this.drawerRef = this.drawer.open(this.configureComponent, {
+      data: this.configureData,
+      disableClose: false,
+      position: 'right',
+      width: 'auto',
+      resize: {
+        min: 260,
+        max: 99999
+      },
+      actions: [
+        {
+          icon: 'clear',
+          type: FsDrawerAction.Button,
+          close: true
+        }
+      ]
+    });
+  }
+
+  public setConfigureComponent(component, data = {}) {
+    this.configureComponent = component;
+    this.configureData = data;
   }
 
   private _loadComponents() {

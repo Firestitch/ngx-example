@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FsExampleComponent } from 'src/app/components/fs-example/fs-example.component';
+import { ConfigureComponent } from '../configure';
 
 @Component({
   selector: 'input-example',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class InputExampleComponent {
 
-  constructor() {
+  constructor(private example: FsExampleComponent) {
+   example.setConfigureComponent(ConfigureComponent, { config: { height: 100, width: 200 } });
   }
 }

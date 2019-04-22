@@ -1,9 +1,11 @@
 import { NgModule, ModuleWithProviders, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { MatIconModule, MatToolbarModule, MatTabsModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MatIconModule, MatToolbarModule, MatTabsModule, MatCardModule,
+        MatButtonModule, MatTooltipModule } from '@angular/material';
 
 import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
+import { FsDrawerModule } from '@firestitch/drawer';
 
 import { FsExampleComponent } from './components/fs-example/fs-example.component';
 import { FsExampleHighlightComponent } from './components/fs-example-highlight/fs-example-highlight.component';
@@ -21,8 +23,10 @@ import { CopierService } from './services/copier';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
+    MatTooltipModule,
     HttpClientModule,
     FsIFrameModule.forRoot(),
+    FsDrawerModule.forRoot(),
   ],
 
   exports: [
@@ -30,8 +34,6 @@ import { CopierService } from './services/copier';
     FsExamplesComponent,
     FsExampleHighlightComponent,
     FsExampleHighlightDirective
-  ],
-  entryComponents: [
   ],
   declarations: [
     FsExampleComponent,

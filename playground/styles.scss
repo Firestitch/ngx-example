@@ -1,5 +1,10 @@
 @import "../tools/assets/playground.scss";
 
+@import "~@firestitch/drawer/styles";
+
+@include fs-drawer($mat-blue);
+
+
 .test-component {
   font-weight: 600;
 }

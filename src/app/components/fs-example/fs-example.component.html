@@ -3,8 +3,12 @@
     <span>{{name}}</span>
     <div class="container">
       <ng-content select="[fs-example-actions]"></ng-content>
-      <button mat-icon-button (click)="toggleContent()">
+      <button mat-icon-button [matTooltip]="showTabs ? 'Hide Code' : 'View Code'" (click)="toggleContent()">
         <mat-icon>code</mat-icon>
+      </button>
+
+      <button mat-icon-button *ngIf="configureComponent" matTooltip="Configure Example" (click)="configureClick()">
+        <mat-icon>settings</mat-icon>
       </button>
     </div>
   </mat-toolbar>
