@@ -9,7 +9,13 @@ import { ConfigureComponent } from '../configure';
 })
 export class InputExampleComponent {
 
+  public config = {
+    text: 'Sushi',
+    height: 100,
+    width: 200
+  };
+
   constructor(private example: FsExampleComponent) {
-   example.setConfigureComponent(ConfigureComponent, { config: { height: 100, width: 200 } });
+   example.setConfigureComponent(ConfigureComponent, { config: this.config });
   }
 }

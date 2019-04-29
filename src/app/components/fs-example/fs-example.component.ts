@@ -2,18 +2,22 @@ import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FsExampleService } from '../../services/fs-example.service';
 import { FsDrawerAction, FsDrawerService } from '@firestitch/drawer';
+import { ExampleService } from '../../services/example.service';
 
 
 @Component({
   selector: 'fs-example',
   templateUrl: 'fs-example.component.html',
-  styleUrls: ['fs-example.component.scss']
+  styleUrls: ['fs-example.component.scss'],
+  providers: [ExampleService]
 })
 
 export class FsExampleComponent {
+
   public showTabs: Boolean = false;
   public tabs = [];
   public code = '';
+  public show = true;
   public configureComponent;
   public configureData = {};
   public drawerRef;
@@ -25,8 +29,9 @@ export class FsExampleComponent {
 
   constructor(
     private http: HttpClient,
-    private exampleService: FsExampleService,
-    public drawer: FsDrawerService
+    private fsExampleService: FsExampleService,
+    public drawer: FsDrawerService,
+    public exampleService: ExampleService
   ) {}
 
   public toggleContent() {
@@ -63,13 +68,23 @@ export class FsExampleComponent {
     });
   }
 
-  public setConfigureComponent(component, data = {}) {
-    this.configureComponent = component;
-    this.configureData = data;
+  public setConfigureComponent(component, data) {
+
+    setTimeout(() => {
+      if (!data) {
+        data = {};
+      }
+
+      this.exampleService.exampleComponent = this;
+      data.example = this.exampleService;
+
+      this.configureComponent = component;
+      this.configureData = data;
+    });
   }
 
   private _loadComponents() {
-    this.exampleService.getFileContents(this.componentPath, this.componentName)
+    this.fsExampleService.getFileContents(this.componentPath, this.componentName)
       .subscribe((files: any) => {
 
         files.forEach((file) => {
@@ -82,7 +97,7 @@ export class FsExampleComponent {
     if (this.componentNames) {
 
       this.componentNames.split(',').forEach((name) => {
-        this.exampleService.getFileContents(this.componentPath, name)
+        this.fsExampleService.getFileContents(this.componentPath, name)
           .subscribe((files: any) => {
             this._filesToTabs(files);
           });

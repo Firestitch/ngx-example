@@ -23,7 +23,9 @@
   </div>
   <mat-card class="mat-elevation-z0">
     <div #items>
-      <ng-content></ng-content>
+      <div *ngIf="show">
+        <ng-content></ng-content>
+      </div>
     </div>
   </mat-card>
 </div>
