@@ -22,11 +22,19 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   @Input('config') set config(config) {
     this.title = config.title;
     this.npmUrl = config.npmUrl;
+
+    const match = config.npmUrl.match(/https:\/\/www.npmjs.com\/package\/(.*)/);
+
+    if (match) {
+      this.npmBadge = 'https://badge.fury.io/js/' + encodeURIComponent(match[1]) + '.svg';
+    }
+
     this.githubUrl = config.githubUrl;
   }
 
   public examples: any = [];
   public loaded = false;
+  public npmBadge;
   private _submoduleUrl;
 
   constructor(
