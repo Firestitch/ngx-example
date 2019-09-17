@@ -26,7 +26,7 @@ import { CopierService } from './services/copier';
     MatTooltipModule,
     HttpClientModule,
     FsIFrameModule.forRoot(),
-    FsDrawerModule.forRoot(),
+    FsDrawerModule,
   ],
 
   exports: [
