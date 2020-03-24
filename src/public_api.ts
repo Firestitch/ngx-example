@@ -13,4 +13,3 @@ export { ExampleService } from './app/services/example.service';
 export { FsExampleComponent } from './app/components/fs-example/fs-example.component';
 export { FsExamplesComponent } from './app/components/fs-examples/fs-examples.component';
 export { FsExampleHighlightComponent } from './app/components/fs-example-highlight/fs-example-highlight.component';
-export { FsExampleHighlightDirective } from './app/directives/fs-example-highlight.directive';

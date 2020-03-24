@@ -11,12 +11,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
 import { FsDrawerModule } from '@firestitch/drawer';
 
+import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
+
 import { FsExampleComponent } from './components/fs-example/fs-example.component';
 import { FsExampleHighlightComponent } from './components/fs-example-highlight/fs-example-highlight.component';
 import { FsExamplesComponent } from './components/fs-examples/fs-examples.component';
-import { FsExampleHighlightDirective } from './directives/fs-example-highlight.directive';
 import { FsExampleService } from './services/fs-example.service';
 import { CopierService } from './services/copier';
+import { highlightOptionsFactory } from './factories/fact';
 
 
 @NgModule({
@@ -31,19 +33,18 @@ import { CopierService } from './services/copier';
     HttpClientModule,
     FsIFrameModule.forRoot(),
     FsDrawerModule,
+    HighlightModule,
   ],
 
   exports: [
     FsExampleComponent,
     FsExamplesComponent,
     FsExampleHighlightComponent,
-    FsExampleHighlightDirective
   ],
   declarations: [
     FsExampleComponent,
     FsExamplesComponent,
     FsExampleHighlightComponent,
-    FsExampleHighlightDirective
   ],
   providers: [],
 })
@@ -52,6 +53,10 @@ export class FsExampleModule {
     return {
       ngModule: FsExampleModule,
       providers: [
+        {
+          provide: HIGHLIGHT_OPTIONS,
+          useFactory: highlightOptionsFactory,
+        },
         { provide: 'FS_EXAMPLE_CONFIG', useValue: config },
         FsExampleService,
         CopierService,

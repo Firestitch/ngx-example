@@ -4,5 +4,7 @@
           (click)="copySource()">
     <mat-icon>content_copy</mat-icon>
   </button>
-  <pre class="hljs"><code fsExampleHighlight [source]="source" [language]="language"></code></pre>
+  <pre class="hljs">
+    <code [highlight]="source" [languages]="languages"></code>
+  </pre>
 </div>

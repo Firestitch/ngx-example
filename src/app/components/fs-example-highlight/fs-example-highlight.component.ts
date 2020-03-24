@@ -9,8 +9,14 @@ import { CopierService } from '../../services/copier';
   styleUrls: ['fs-example-highlight.component.scss']
 })
 export class FsExampleHighlightComponent {
-  @Input() language: string;
+  @Input()
+  set language(value: string) {
+    this.languages = [value];
+  }
+
   @Input() source: string;
+
+  public languages = [];
 
   constructor(
     private _copier: CopierService,
