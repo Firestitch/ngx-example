@@ -48,7 +48,7 @@ import { CopierService } from './services/copier';
   providers: [],
 })
 export class FsExampleModule {
-  static forRoot(config?): ModuleWithProviders {
+  static forRoot(config?): ModuleWithProviders<FsExampleModule> {
     return {
       ngModule: FsExampleModule,
       providers: [
