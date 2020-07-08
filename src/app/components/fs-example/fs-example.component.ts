@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FsExampleService } from '../../services/fs-example.service';
-import { FsDrawerAction, FsDrawerService } from '@firestitch/drawer';
+import { FsDrawerAction, FsDrawerService } from '@firestitch/drawer-unique-namespace';
 import { ExampleService } from '../../services/example.service';
 
 
@@ -53,10 +53,12 @@ export class FsExampleComponent {
       data: this.configureData,
       disableClose: false,
       position: 'right',
-      width: 'auto',
-      resize: {
-        min: 260,
-        max: 99999
+      width: {
+        main: {
+          initial: 500,
+          min: 260,
+          // max: 1000,
+        },
       },
       actions: [
         {

@@ -1,6 +1,6 @@
 @import "../tools/assets/playground.scss";
 
-@import "~@firestitch/drawer/styles";
+@import "~@firestitch/drawer-unique-namespace/styles";
 
 @include fs-drawer($mat-blue);
 

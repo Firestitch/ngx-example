@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
-import { FsDrawerModule } from '@firestitch/drawer';
+import { FsDrawerModule } from '@firestitch/drawer-unique-namespace';
 
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 

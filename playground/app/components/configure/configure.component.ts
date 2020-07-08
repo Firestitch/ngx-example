@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { DrawerRef, DRAWER_DATA } from '@firestitch/drawer';
+import { DrawerRef, DRAWER_DATA } from '@firestitch/drawer-unique-namespace';
 
 
 @Component({

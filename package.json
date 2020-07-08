@@ -1,7 +1,7 @@
 {
   "name": "@firestitch/example",
   "title": "Example",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-example"
@@ -26,6 +26,9 @@
     "demo:build": "cd tools && npm run cli:demo",
     "serve": "cd tools && npm run cli:serve"
   },
+  "dependencies": {
+    "@firestitch/drawer-unique-namespace": "npm:@firestitch/drawer@9.0.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.7",
     "@angular-devkit/build-ng-packagr": "~0.900.7",
@@ -43,7 +46,6 @@
     "@angular/platform-browser-dynamic": "^9.0.7",
     "@angular/router": "^9.0.7",
     "@compodoc/compodoc": "^1.1.11",
-    "@firestitch/drawer": "^8.2.0",
     "@firestitch/iframe": "^8.0.0",
     "@firestitch/menu": "^9.0.1",
     "codelyzer": "^5.2.1",
@@ -59,14 +61,13 @@
     "tslint": "^6.1.0",
     "typescript": "^3.7.5",
     "webpack": "^4.42.1",
+    "tslib": "^1.10.0",
     "webpack-dev-server": "^3.10.3",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "zone.js": "~0.10.3"
   },
-  "dependencies": {
-    "tslib": "^1.10.0"
-  },
   "peerDependencies": {
-    "@firestitch/iframe": ">=8.0.0"
+    "@firestitch/iframe": ">=8.0.0",
+    "tslib": "^1.10.0"
   }
 }
