@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FsExampleModule } from '@firestitch/example';
 
-import { ToastrModule } from 'ngx-toastr';
-
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './material.module';
 import { InputExampleComponent } from './components/input-example/input-example.component';
@@ -18,7 +16,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     FormsModule,
     FsExampleModule.forRoot({ iframeObserveBody: true }),
-    ToastrModule.forRoot({ preventDuplicates: true }),
     BrowserAnimationsModule,
     AppMaterialModule,
     FlexLayoutModule
