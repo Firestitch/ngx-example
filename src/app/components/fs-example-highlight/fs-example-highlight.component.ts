@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { CopierService } from '../../services/copier';
+import { FsMessage } from '@firestitch/message';
 
 
 @Component({
@@ -20,14 +20,14 @@ export class FsExampleHighlightComponent {
 
   constructor(
     private _copier: CopierService,
-    private _toastr: ToastrService,
+    private _message: FsMessage,
   ) {}
 
   public copySource() {
     if (this._copier.copyText(this.source)) {
-      this._toastr.success('Code copied');
+      this._message.success('Code copied');
     } else {
-      this._toastr.error('Copy failed. Please try again!');
+      this._message.error('Copy failed. Please try again!');
     }
   }
 }
