@@ -1,5 +1,6 @@
 import {
   AfterContentChecked,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -10,10 +11,12 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'fs-examples',
-  templateUrl: 'fs-examples.component.html',
-  styleUrls: [ 'fs-examples.component.scss' ]
+  templateUrl: './fs-examples.component.html',
+  styleUrls: [ './fs-examples.component.scss' ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsExamplesComponent implements OnInit, AfterContentChecked {
+  
   @Input() public title: string;
   @Input() public npmUrl: string;
   @Input() public githubUrl: string;

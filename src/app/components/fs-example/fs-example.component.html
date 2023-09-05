@@ -6,10 +6,6 @@
       <button mat-icon-button [matTooltip]="showTabs ? 'Hide Code' : 'View Code'" (click)="toggleContent()">
         <mat-icon>code</mat-icon>
       </button>
-
-      <button mat-icon-button *ngIf="configureComponent" matTooltip="Configure Example" (click)="configureClick()">
-        <mat-icon>settings</mat-icon>
-      </button>
     </div>
   </mat-toolbar>
   <div *ngIf="showTabs">

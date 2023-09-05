@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CopierService } from '../../services/copier';
 import { FsMessage } from '@firestitch/message';
 
 
 @Component({
   selector: 'fs-example-highlight',
-  templateUrl: 'fs-example-highlight.component.html',
-  styleUrls: ['fs-example-highlight.component.scss']
+  templateUrl: './fs-example-highlight.component.html',
+  styleUrls: ['./fs-example-highlight.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsExampleHighlightComponent {
   @Input()

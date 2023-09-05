@@ -1,11 +1,6 @@
 @use '~@angular/material' as mat;
 @import '~@firestitch/component-tools/assets/playground.scss';
 
-@import "~@firestitch/drawer-unique-namespace/styles";
-
-@include fs-drawer(mat.$blue-palette);
-
-
 .test-component {
   font-weight: 600;
 }

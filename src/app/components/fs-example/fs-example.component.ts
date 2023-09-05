@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FsExampleService } from '../../services/fs-example.service';
-import { FsDrawerAction, FsDrawerService } from '@firestitch/drawer-unique-namespace';
 import { ExampleService } from '../../services/example.service';
 
 
 @Component({
   selector: 'fs-example',
-  templateUrl: 'fs-example.component.html',
-  styleUrls: ['fs-example.component.scss'],
-  providers: [ExampleService]
+  templateUrl: './fs-example.component.html',
+  styleUrls: ['./fs-example.component.scss'],
+  providers: [ExampleService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class FsExampleComponent {
@@ -20,7 +19,6 @@ export class FsExampleComponent {
   public show = true;
   public configureComponent;
   public configureData = {};
-  public drawerRef;
 
   @Input() name: string;
   @Input() componentPath: string;
@@ -28,9 +26,7 @@ export class FsExampleComponent {
   @Input() componentNames: string;
 
   constructor(
-    private http: HttpClient,
     private fsExampleService: FsExampleService,
-    public drawer: FsDrawerService,
     public exampleService: ExampleService
   ) {}
 
@@ -42,49 +38,7 @@ export class FsExampleComponent {
       this._loadComponents();
     }
   }
-
-  public configureClick() {
-
-    if (this.drawerRef) {
-      this.drawerRef.close();
-    }
-
-    this.drawerRef = this.drawer.open(this.configureComponent, {
-      data: this.configureData,
-      disableClose: false,
-      position: 'right',
-      width: {
-        main: {
-          initial: 500,
-          min: 260,
-          // max: 1000,
-        },
-      },
-      actions: [
-        {
-          icon: 'clear',
-          type: FsDrawerAction.Button,
-          close: true
-        }
-      ]
-    });
-  }
-
-  public setConfigureComponent(component, data) {
-
-    setTimeout(() => {
-      if (!data) {
-        data = {};
-      }
-
-      this.exampleService.exampleComponent = this;
-      data.example = this.exampleService;
-
-      this.configureComponent = component;
-      this.configureData = data;
-    });
-  }
-
+  
   private _loadComponents() {
     this.fsExampleService.getFileContents(this.componentPath, this.componentName)
       .subscribe((files: any) => {

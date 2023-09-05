@@ -9,7 +9,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { FsIFrameModule, FsIFrame } from '@firestitch/iframe';
-import { FsDrawerModule } from '@firestitch/drawer-unique-namespace';
 
 import { HIGHLIGHT_OPTIONS, HighlightModule } from 'ngx-highlightjs';
 
@@ -24,15 +23,16 @@ import { highlightOptionsFactory } from './factories/fact';
 @NgModule({
   imports: [
     CommonModule,
+
     MatIconModule,
     MatToolbarModule,
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
     MatTooltipModule,
+
     HttpClientModule,
     FsIFrameModule.forRoot(),
-    FsDrawerModule,
     HighlightModule,
   ],
 
