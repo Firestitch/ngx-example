@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { AppMaterialModule } from './material.module';
 import { InputExampleComponent } from './components/input-example/input-example.component';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   bootstrap: [ AppComponent ],
@@ -17,7 +16,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FsExampleModule.forRoot({ iframeObserveBody: true }),
     BrowserAnimationsModule,
     AppMaterialModule,
-    FlexLayoutModule
   ],
   declarations: [
     AppComponent,
