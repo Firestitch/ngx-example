@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FsExampleModule } from '@firestitch/example';
+import { FsExampleModule } from '../../src/app/fs-example.module';
 
 import { AppComponent } from './app.component';
 import { AppMaterialModule } from './material.module';
