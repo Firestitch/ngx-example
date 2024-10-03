@@ -1,7 +1,7 @@
 {
   "name": "@firestitch/example",
   "title": "Example",
-  "version": "15.0.0",
+  "version": "15.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/Firestitch/ngx-example"
@@ -46,7 +46,7 @@
     "@firestitch/autocomplete": "^14.0.0",
     "@firestitch/autocomplete-chips": "^14.0.0",
     "@firestitch/common": "^14.0.0",
-    "@firestitch/component-tools": "^15.0.1",
+    "@firestitch/component-tools": "^15.0.3",
     "@firestitch/core": "^14.0.0",
     "@firestitch/date": "^14.0.0",
     "@firestitch/datepicker": "^14.0.0",
