@@ -63,14 +63,13 @@
     "date-fns-tz": "^2.0.0",
     "hammerjs": "^2.0.8",
     "lodash-es": "^4.17.15",
-    "rxjs": "^6.5.4",
+    "rxjs": "^7.8.1",
     "tslib": "^2.2.0",
     "typescript": "4.9.5",
     "zone.js": "~0.13.3"
   },
   "dependencies": {
-    "highlight.js": "9.18.1",
-    "ngx-highlightjs": "^4.1.3"
+    "ngx-highlightjs": "^10.0.0"
   },
   "peerDependencies": {
     "@firestitch/iframe": ">=12.0.0"
