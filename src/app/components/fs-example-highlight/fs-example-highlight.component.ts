@@ -10,14 +10,10 @@ import { FsMessage } from '@firestitch/message';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsExampleHighlightComponent {
-  @Input()
-  set language(value: string) {
-    this.languages = [value];
-  }
+  
+  @Input() language;
 
   @Input() source: string;
-
-  public languages = [];
 
   constructor(
     private _copier: CopierService,

@@ -1,7 +1,7 @@
-import { HighlightOptions } from 'ngx-highlightjs';
+import { HighlightJSOptions } from 'ngx-highlightjs';
 
 
-export function highlightOptionsFactory(): HighlightOptions {
+export function highlightOptionsFactory(): HighlightJSOptions {
   return {
     languages: {
       typescript: () => import('highlight.js/lib/languages/typescript'),
