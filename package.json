@@ -51,7 +51,7 @@
     "@firestitch/date": "^17.0.0",
     "@firestitch/datepicker": "^17.0.0",
     "@firestitch/dialog": "^17.0.0",
-    "@firestitch/file": "^17.0.0",
+    "@firestitch/file": "^18.0.0",
     "@firestitch/html": "^17.0.0",
     "@firestitch/iframe": "^17.0.0",
     "@firestitch/label": "^17.0.0",
