@@ -66,7 +66,6 @@ import {} from '@angular/common/http';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    HttpClientModule
   ]
 })
 export class AppMaterialModule {}

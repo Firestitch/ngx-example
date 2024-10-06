@@ -1,8 +1,1 @@
-@use '@angular/material' as mat;
 @import '@firestitch/component-tools/assets/playground.scss';
-
-.test-component {
-  font-weight: 600;
-}
-
-@include mat.core();
