@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,33 +20,24 @@ import { CopierService } from './services/copier';
 import { highlightOptionsFactory } from './factories/fact';
 
 
-@NgModule({
-  imports: [
-    CommonModule,
-
-    MatIconModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTooltipModule,
-
-    HttpClientModule,
-    FsIFrameModule.forRoot(),
-    HighlightModule,
-  ],
-  exports: [
-    FsExampleComponent,
-    FsExamplesComponent,
-    FsExampleHighlightComponent,
-  ],
-  declarations: [
-    FsExampleComponent,
-    FsExamplesComponent,
-    FsExampleHighlightComponent,
-  ],
-  providers: [],
-})
+@NgModule({ exports: [
+        FsExampleComponent,
+        FsExamplesComponent,
+        FsExampleHighlightComponent,
+    ],
+    declarations: [
+        FsExampleComponent,
+        FsExamplesComponent,
+        FsExampleHighlightComponent,
+    ], imports: [CommonModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatTooltipModule,
+        FsIFrameModule.forRoot(),
+        HighlightModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class FsExampleModule {
   static forRoot(config?): ModuleWithProviders<FsExampleModule> {
     return {

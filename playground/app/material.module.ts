@@ -30,7 +30,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgModule } from '@angular/core';
 import { CdkTableModule} from '@angular/cdk/table';
-import {HttpClientModule} from '@angular/common/http';
+import {} from '@angular/common/http';
 
 @NgModule({
   exports: [
