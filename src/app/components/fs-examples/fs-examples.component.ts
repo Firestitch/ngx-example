@@ -12,7 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'fs-examples',
   templateUrl: './fs-examples.component.html',
-  styleUrls: [ './fs-examples.component.scss' ],
+  styleUrls: ['./fs-examples.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FsExamplesComponent implements OnInit, AfterContentChecked {
@@ -22,14 +22,14 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   @Input() public githubUrl: string;
   @Input('name') public submoduleName: string;
 
-  @Input('config') set config(config) {
+  @Input('config') public set config(config) {
     this.title = config.title;
     this.npmUrl = config.npmUrl;
 
     const match = config.npmUrl.match(/https:\/\/www.npmjs.com\/package\/(.*)/);
 
     if (match) {
-      this.npmBadge = 'https://badge.fury.io/js/' + encodeURIComponent(match[1]) + '.svg';
+      this.npmBadge = `https://badge.fury.io/js/${  encodeURIComponent(match[1])  }.svg`;
     }
 
     this.githubUrl = config.githubUrl;
@@ -42,21 +42,21 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
 
   constructor(
     public el: ElementRef,
-    private sanitizer: DomSanitizer,
+    private _sanitizer: DomSanitizer,
   ) {}
 
-  get submoduleUrl() {
+  public get submoduleUrl() {
     return this._submoduleUrl;
   }
 
   public ngOnInit() {
     const url = `${window.location.origin}/docs`;
-    this._submoduleUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this._submoduleUrl = this._sanitizer.bypassSecurityTrustResourceUrl(url);
     this.loaded = true;
   }
 
   public ngAfterContentChecked() {
-    this.getExampleElements()
+    this.getExampleElements();
   }
 
   public scrollTo(example) {
@@ -71,11 +71,11 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
     }
 
     this.examples = Array.from(
-      this.el.nativeElement.querySelectorAll('fs-example')
+      this.el.nativeElement.querySelectorAll('fs-example'),
     ).reduce((acc: any[], rowElement: any, index) => {
       const title: string = rowElement.getAttribute('title');
       if (title) {
-        acc.push({el: rowElement, title: title});
+        acc.push({ el: rowElement, title: title });
       }
 
       return acc;

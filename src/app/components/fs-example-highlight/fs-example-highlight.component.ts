@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CopierService } from '../../services/copier';
+
 import { FsMessage } from '@firestitch/message';
+
+import { CopierService } from '../../services/copier';
 
 
 @Component({
@@ -11,9 +13,9 @@ import { FsMessage } from '@firestitch/message';
 })
 export class FsExampleHighlightComponent {
   
-  @Input() language;
+  @Input() public language;
 
-  @Input() source: string;
+  @Input() public source: string;
 
   constructor(
     private _copier: CopierService,

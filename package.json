@@ -55,7 +55,7 @@
     "@firestitch/html": "^17.0.0",
     "@firestitch/iframe": "^17.0.0",
     "@firestitch/label": "^17.0.0",
-    "@firestitch/lint": "^17.0.0",
+    "@firestitch/lint": "^18.0.2",
     "@firestitch/menu": "^17.0.0",
     "@firestitch/message": "^17.0.0",
     "@firestitch/popover": "^17.0.0",
