@@ -17,11 +17,13 @@
       </div>
     </mat-tab-group>
   </div>
-  <mat-card class="mat-elevation-z0">
-    <div #items>
-      <div *ngIf="show">
-        <ng-content></ng-content>
+  <mat-card>
+    <mat-card-content>
+      <div #items>
+        <div *ngIf="show">
+          <ng-content></ng-content>
+        </div>
       </div>
-    </div>
+    </mat-card-content>
   </mat-card>
 </div>
