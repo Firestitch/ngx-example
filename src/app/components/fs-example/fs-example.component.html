@@ -1,4 +1,4 @@
-<div class="mat-elevation-z2">
+<div class="mat-elevation-z2 example-container">
   <mat-toolbar>
     <span>{{name}}</span>
     <div class="container">
@@ -17,13 +17,9 @@
       </div>
     </mat-tab-group>
   </div>
-  <mat-card>
-    <mat-card-content>
-      <div #items>
-        <div *ngIf="show">
-          <ng-content></ng-content>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <div #items class="content">
+    <div *ngIf="show">
+      <ng-content></ng-content>
+    </div>
+  </div>
 </div>

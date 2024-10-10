@@ -7,6 +7,10 @@ mat-toolbar {
   justify-content: space-between;
 }
 
+.example-container {
+  border-radius: 12px;
+}
+
 .example-code {
   border-bottom: 1px solid rgba(0,0,0,0.1);
   font-family: monospace;
@@ -19,11 +23,18 @@ mat-toolbar {
   display: block;
 
   mat-toolbar {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
     span {
       text-overflow: ellipsis;
        white-space: nowrap;
       overflow: hidden;
     }
+  }
+
+  .content {
+    padding: 20px;
   }
 }
 
