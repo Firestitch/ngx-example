@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FsExampleService } from '../../services/fs-example.service';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+
 import { ExampleService } from '../../services/example.service';
+import { FsExampleService } from '../../services/fs-example.service';
 
 
 @Component({
@@ -11,24 +12,29 @@ import { ExampleService } from '../../services/example.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class FsExampleComponent {
+export class FsExampleComponent implements OnInit {
 
-  public showTabs: Boolean = false;
+  public showTabs: boolean = false;
   public tabs = [];
   public code = '';
+  public anchor = '';
   public show = true;
   public configureComponent;
   public configureData = {};
 
-  @Input() name: string;
-  @Input() componentPath: string;
-  @Input() componentName: string;
-  @Input() componentNames: string;
+  @Input() public name: string;
+  @Input() public componentPath: string;
+  @Input() public componentName: string;
+  @Input() public componentNames: string;
 
   constructor(
-    private fsExampleService: FsExampleService,
-    public exampleService: ExampleService
+    private _exampleService: FsExampleService,
+    public exampleService: ExampleService,
   ) {}
+
+  public ngOnInit() {
+    this.anchor = this.name.toLowerCase().replace(/ /g, '-');
+  }
 
   public toggleContent() {
     this.showTabs = !this.showTabs;
@@ -40,7 +46,7 @@ export class FsExampleComponent {
   }
   
   private _loadComponents() {
-    this.fsExampleService.getFileContents(this.componentPath, this.componentName)
+    this._exampleService.getFileContents(this.componentPath, this.componentName)
       .subscribe((files: any) => {
 
         files.forEach((file) => {
@@ -53,7 +59,7 @@ export class FsExampleComponent {
     if (this.componentNames) {
 
       this.componentNames.split(',').forEach((name) => {
-        this.fsExampleService.getFileContents(this.componentPath, name)
+        this._exampleService.getFileContents(this.componentPath, name)
           .subscribe((files: any) => {
             this._filesToTabs(files);
           });
@@ -65,7 +71,7 @@ export class FsExampleComponent {
     const order = ['html', 'ts', 'css', 'scss'];
 
     const tabs = files.sort((a: any, b: any) => {
-      return order.indexOf(a.type) - order.indexOf(b.type)
+      return order.indexOf(a.type) - order.indexOf(b.type);
     });
 
     tabs.forEach((tab) => {

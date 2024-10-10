@@ -1,6 +1,8 @@
-<div class="mat-elevation-z2 example-container">
+<div class="mat-elevation-z2 example-container" [attr.id]="anchor">
   <mat-toolbar>
-    <span>{{name}}</span>
+    <a [routerLink]="'.'" [fragment]="anchor">
+      <span>{{name}}</span>
+    </a>
     <div class="container">
       <ng-content select="[fs-example-actions]"></ng-content>
       <button mat-icon-button [matTooltip]="showTabs ? 'Hide Code' : 'View Code'" (click)="toggleContent()">

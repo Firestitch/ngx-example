@@ -1,10 +1,28 @@
 @import '../../styles.scss';
 
+
+
 mat-toolbar {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   color: rgba(0,0,0,0.54);
   font-size: 16px;
   display: flex;
   justify-content: space-between;
+
+  a {
+    color: inherit;
+
+    span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.content {
+  padding: 20px;
 }
 
 .example-container {
@@ -21,20 +39,5 @@ mat-toolbar {
 :host {
   padding: 20px 0;
   display: block;
-
-  mat-toolbar {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-
-    span {
-      text-overflow: ellipsis;
-       white-space: nowrap;
-      overflow: hidden;
-    }
-  }
-
-  .content {
-    padding: 20px;
-  }
 }
 
