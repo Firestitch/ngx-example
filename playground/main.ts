@@ -9,5 +9,5 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(PlaygroundModule)
-  .catch(err => console.error(err));
+  .catch((err) => console.error(err));
 
