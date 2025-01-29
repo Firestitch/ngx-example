@@ -8,7 +8,7 @@ export function highlightOptionsFactory(): HighlightJSOptions {
       scss: () => import('highlight.js/lib/languages/scss'),
       html: () => import('highlight.js/lib/languages/xml'),
       css: () => import('highlight.js/lib/languages/css'),
-      coreLibraryLoader: () => import('highlight.js/lib/core'),
     },
+    coreLibraryLoader: () => import('highlight.js/lib/core'),
   };
 }

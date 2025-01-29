@@ -13,7 +13,7 @@ import { CopierService } from '../../services/copier';
 })
 export class FsExampleHighlightComponent {
   
-  @Input() public language;
+  @Input() public language: string;
 
   @Input() public source: string;
 

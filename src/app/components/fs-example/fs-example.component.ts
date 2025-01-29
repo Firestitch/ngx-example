@@ -15,7 +15,7 @@ import { FsExampleService } from '../../services/fs-example.service';
 export class FsExampleComponent implements OnInit {
 
   public showTabs: boolean = false;
-  public tabs = [];
+  public tabs: any[] = [];
   public code = '';
   public anchor = '';
   public show = true;

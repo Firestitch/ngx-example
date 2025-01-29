@@ -1,12 +1,23 @@
-<div class="mat-elevation-z2 example-container" [attr.id]="anchor">
+<div
+    class="mat-elevation-z2 example-container"
+    [attr.id]="anchor">
   <mat-toolbar>
-    <a [routerLink]="'.'" [fragment]="anchor">
-      <span>{{name}}</span>
+    <a
+        [routerLink]="'.'"
+        [fragment]="anchor">
+      <span>
+        {{ name }}
+      </span>
     </a>
     <div class="container">
       <ng-content select="[fs-example-actions]"></ng-content>
-      <button mat-icon-button [matTooltip]="showTabs ? 'Hide Code' : 'View Code'" (click)="toggleContent()">
-        <mat-icon>code</mat-icon>
+      <button
+          mat-icon-button
+          [matTooltip]="showTabs ? 'Hide Code' : 'View Code'"
+          (click)="toggleContent()">
+        <mat-icon>
+          code
+        </mat-icon>
       </button>
     </div>
   </mat-toolbar>
@@ -14,12 +25,17 @@
     <mat-tab-group>
       <div *ngFor="let tab of tabs">
         <mat-tab label="{{tab.name | uppercase}}">
-          <fs-example-highlight [source]="tab.code" [language]="tab.type"></fs-example-highlight>
+          <fs-example-highlight
+            [source]="tab.code"
+            [language]="tab.type">
+          </fs-example-highlight>
         </mat-tab>
       </div>
     </mat-tab-group>
   </div>
-  <div #items class="content">
+  <div
+      #items
+      class="content">
     <div *ngIf="show">
       <ng-content></ng-content>
     </div>

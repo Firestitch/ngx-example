@@ -1,22 +1,36 @@
 <fs-examples [config]="config">
-
   <div fs-examples-body>
-    <div class="examples-h2">The H2 Heading</div>
-    <div class="examples-h3">The H3 Heading</div>
-    <p>This is some text that could go above, and maybe below</p>
+    <div class="examples-h2">
+      The H2 Heading
+    </div>
+    <div class="examples-h3">
+      The H3 Heading
+    </div>
+    <p>
+      This is some text that could go above, and maybe below
+    </p>
   </div>
-
   <div fs-examples-install>
-    <div class="examples-h2">The H2 Heading</div>
-    <div class="examples-h3">The H3 Heading</div>
-    <p>Install instructions</p>
+    <div class="examples-h2">
+      The H2 Heading
+    </div>
+    <div class="examples-h3">
+      The H3 Heading
+    </div>
+    <p>
+      Install instructions
+    </p>
   </div>
-
-  <fs-example name="Input Example" componentName="input-example">
+  <fs-example
+      [name]="'Input Example'"
+      [componentName]="'input-example'">
     <input-example></input-example>
   </fs-example>
-
-  <fs-example name="Another Input Example" componentPath="input-example" componentName="input-example" componentNames="input-example">
+  <fs-example
+      [name]="'Another Input Example'"
+      [componentPath]="'input-example'"
+      [componentName]="'input-example'"
+      [componentNames]="'input-example'">
     <input-example></input-example>
   </fs-example>
 </fs-examples>
