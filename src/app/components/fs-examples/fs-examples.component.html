@@ -2,19 +2,27 @@
   <div class="title examples-h1">{{title}}</div>
   <div class="content"><ng-content select="[fs-examples-extra]"></ng-content></div>
   <div class="details">
-    <a [href]="npmUrl" target="_blank" *ngIf="npmUrl" class="npm"><img [src]="npmBadge"></a>
-    <a [href]="githubUrl" target="_blank" *ngIf="githubUrl" class="github"></a>
+    @if (npmUrl) {
+      <a [href]="npmUrl" target="_blank" class="npm"><img [src]="npmBadge"></a>
+    }
+    @if (githubUrl) {
+      <a [href]="githubUrl" target="_blank" class="github"></a>
+    }
   </div>
 </div>
 
 <ng-content select="[fs-examples-body]"></ng-content>
 <div class="example-container">
-  <ul class="examples-list" *ngIf="examples.length > 1">
-    <li *ngFor="let example of examples">
-      <a href="javascript:;" (click)="scrollTo(example)" fsIFrameScrollTo>{{example.title}}</a>
-    </li>
-  </ul>
+  @if (examples.length > 1) {
+    <ul class="examples-list">
+      @for (example of examples; track example) {
+        <li>
+          <a href="javascript:;" (click)="scrollTo(example)" fsIFrameScrollTo>{{example.title}}</a>
+        </li>
+      }
+    </ul>
+  }
   <div class="examples">
-      <ng-content select="fs-example"></ng-content>
+    <ng-content select="fs-example"></ng-content>
   </div>
 </div>
