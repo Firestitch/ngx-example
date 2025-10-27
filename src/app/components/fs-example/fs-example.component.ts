@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
 
 import { ExampleService } from '../../services/example.service';
 import { FsExampleService } from '../../services/fs-example.service';
@@ -33,6 +33,9 @@ import { UpperCasePipe } from '@angular/common';
 })
 
 export class FsExampleComponent implements OnInit {
+  private _exampleService = inject(FsExampleService);
+  exampleService = inject(ExampleService);
+
 
   public showTabs: boolean = false;
   public tabs: any[] = [];
@@ -46,11 +49,6 @@ export class FsExampleComponent implements OnInit {
   @Input() public componentPath: string;
   @Input() public componentName: string;
   @Input() public componentNames: string;
-
-  constructor(
-    private _exampleService: FsExampleService,
-    public exampleService: ExampleService,
-  ) {}
 
   public ngOnInit() {
     this.anchor = this.name.toLowerCase().replace(/ /g, '-');

@@ -1,11 +1,4 @@
-import {
-  AfterContentChecked,
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-} from '@angular/core';
+import { AfterContentChecked, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FsIFrameModule } from '@firestitch/iframe';
 
@@ -19,6 +12,9 @@ import { FsIFrameModule } from '@firestitch/iframe';
     imports: [FsIFrameModule],
 })
 export class FsExamplesComponent implements OnInit, AfterContentChecked {
+  el = inject(ElementRef);
+  private _sanitizer = inject(DomSanitizer);
+
   
   @Input() public title: string;
   @Input() public npmUrl: string;
@@ -42,11 +38,6 @@ export class FsExamplesComponent implements OnInit, AfterContentChecked {
   public loaded = false;
   public npmBadge;
   private _submoduleUrl;
-
-  constructor(
-    public el: ElementRef,
-    private _sanitizer: DomSanitizer,
-  ) {}
 
   public get submoduleUrl() {
     return this._submoduleUrl;

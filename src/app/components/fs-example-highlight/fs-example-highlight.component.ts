@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 
 import { FsMessage } from '@firestitch/message';
 
@@ -21,15 +21,13 @@ import { Highlight } from 'ngx-highlightjs';
     ],
 })
 export class FsExampleHighlightComponent {
+  private _copier = inject(CopierService);
+  private _message = inject(FsMessage);
+
   
   @Input() public language: string;
 
   @Input() public source: string;
-
-  constructor(
-    private _copier: CopierService,
-    private _message: FsMessage,
-  ) {}
 
   public copySource() {
     if (this._copier.copyText(this.source)) {

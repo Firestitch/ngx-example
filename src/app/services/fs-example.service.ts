@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { of, forkJoin, Observable } from 'rxjs';
@@ -7,10 +7,10 @@ import {catchError, map} from 'rxjs/operators';
 
 @Injectable()
 export class FsExampleService {
+  private http = inject(HttpClient);
+
 
   public static readonly EXAMPLE_PATH_PREFIX = 'assets/components';
-
-  constructor(private http: HttpClient) { }
 
   getFileContents(path: string, name: string): Observable<{}[]> {
     const fileCodeRequests = this._paths(path, name).reduce((acc, file: any) => {
