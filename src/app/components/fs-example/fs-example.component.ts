@@ -2,14 +2,34 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 
 import { ExampleService } from '../../services/example.service';
 import { FsExampleService } from '../../services/fs-example.service';
+import { MatToolbar } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
+import { MatIconButton } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatIcon } from '@angular/material/icon';
+import { MatTabGroup, MatTab } from '@angular/material/tabs';
+import { FsExampleHighlightComponent } from '../fs-example-highlight/fs-example-highlight.component';
+import { UpperCasePipe } from '@angular/common';
 
 
 @Component({
-  selector: 'fs-example',
-  templateUrl: './fs-example.component.html',
-  styleUrls: ['./fs-example.component.scss'],
-  providers: [ExampleService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-example',
+    templateUrl: './fs-example.component.html',
+    styleUrls: ['./fs-example.component.scss'],
+    providers: [ExampleService],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        MatToolbar,
+        RouterLink,
+        MatIconButton,
+        MatTooltip,
+        MatIcon,
+        MatTabGroup,
+        MatTab,
+        FsExampleHighlightComponent,
+        UpperCasePipe,
+    ],
 })
 
 export class FsExampleComponent implements OnInit {

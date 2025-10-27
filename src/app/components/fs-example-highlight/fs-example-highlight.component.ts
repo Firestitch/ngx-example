@@ -3,13 +3,22 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FsMessage } from '@firestitch/message';
 
 import { CopierService } from '../../services/copier';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import { Highlight } from 'ngx-highlightjs';
 
 
 @Component({
-  selector: 'fs-example-highlight',
-  templateUrl: './fs-example-highlight.component.html',
-  styleUrls: ['./fs-example-highlight.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-example-highlight',
+    templateUrl: './fs-example-highlight.component.html',
+    styleUrls: ['./fs-example-highlight.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        MatIconButton,
+        MatIcon,
+        Highlight,
+    ],
 })
 export class FsExampleHighlightComponent {
   

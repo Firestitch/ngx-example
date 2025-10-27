@@ -7,13 +7,16 @@ import {
   OnInit,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { FsIFrameModule } from '@firestitch/iframe';
 
 
 @Component({
-  selector: 'fs-examples',
-  templateUrl: './fs-examples.component.html',
-  styleUrls: ['./fs-examples.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'fs-examples',
+    templateUrl: './fs-examples.component.html',
+    styleUrls: ['./fs-examples.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [FsIFrameModule],
 })
 export class FsExamplesComponent implements OnInit, AfterContentChecked {
   

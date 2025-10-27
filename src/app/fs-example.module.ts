@@ -22,32 +22,29 @@ import { CopierService } from './services/copier';
 import { FsExampleService } from './services/fs-example.service';
 
 
-@NgModule({ 
-  exports: [
-    FsExampleComponent,
-    FsExamplesComponent,
-    FsExampleHighlightComponent,
-  ],
-  declarations: [
-    FsExampleComponent,
-    FsExamplesComponent,
-    FsExampleHighlightComponent,
-  ], 
-  imports: [
-    CommonModule,
-    RouterModule,
- 
-    MatIconModule,
-    MatToolbarModule,
-    MatTabsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTooltipModule,
-    
-    FsIFrameModule.forRoot(),
-    HighlightModule,
-  ],
-  providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+    exports: [
+        FsExampleComponent,
+        FsExamplesComponent,
+        FsExampleHighlightComponent,
+    ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatTabsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatTooltipModule,
+        FsIFrameModule.forRoot(),
+        HighlightModule,
+        FsExampleComponent,
+        FsExamplesComponent,
+        FsExampleHighlightComponent,
+    ],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
 export class FsExampleModule {
 
   constructor(

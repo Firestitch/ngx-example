@@ -1,13 +1,25 @@
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { PlaygroundModule } from './app/playground.module';
+
 import { environment } from './environments/environment';
+import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { provideRouter } from '@angular/router';
+import { FsExampleModule } from '../src/app/fs-example.module';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { AppComponent } from './app/app.component';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(PlaygroundModule)
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(BrowserModule, FormsModule, FsExampleModule.forRoot({ iframeObserveBody: true })),
+        provideRouter([]),
+        provideAnimations(),
+    ]
+})
   .catch((err) => console.error(err));
 
