@@ -53,12 +53,20 @@ export class FsExampleModule {
     const _config = this._config;
     const _iframe = this._iframe;
 
-    if (_config.iframeObserveBody !== false) {
+    // OPTIONAL-CHAINED ON PURPOSE. forRoot() takes no argument in most
+    // playgrounds, which registers FS_EXAMPLE_CONFIG with the value `undefined`
+    // -- the token exists, so injection succeeds and hands back undefined.
+    // Reading a property off it directly throws before the app can bootstrap.
+    //
+    // The comparison stays `!== false` so the behaviour is unchanged: observing
+    // is the default, and only an explicit `iframeObserveBody: false` turns it
+    // off. An absent config therefore observes, exactly as before.
+    if (_config?.iframeObserveBody !== false) {
       _iframe.observeBody();
     }
   }
 
-  public static forRoot(config?): ModuleWithProviders<FsExampleModule> {
+  public static forRoot(config = {}): ModuleWithProviders<FsExampleModule> {
     return {
       ngModule: FsExampleModule,
       providers: [

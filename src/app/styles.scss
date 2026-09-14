@@ -7,12 +7,15 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 :host ::ng-deep {
 
   /** Adapted from https://github.com/atom-material/atom-material-syntax-light */
+  // The code panel's ground and base ink follow the scheme. Only these two are
+  // restated -- every syntax colour below is a mid-tone hue chosen to read on
+  // either ground, so they are deliberately left alone.
   .hljs {
     display: block;
     overflow-x: auto;
     padding: 1em;
-    background: #FAFAFA;
-    color: #37474f;
+    background: var(--fs-color-hover, light-dark(#FAFAFA, rgba(255, 255, 255, 0.08)));
+    color: var(--fs-color-text, light-dark(#37474f, #E8EDEC));
     -webkit-font-smoothing: antialiased;
     text-size-adjust: 100%;
     font: 300 100%/1 Roboto Mono,monospace;

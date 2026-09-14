@@ -2,10 +2,22 @@
 
 
 
+// SURFACES COME FROM @firestitch/style, NEVER FROM A HARDCODED HEX.
+//
+// The example card is the ground every demo is judged against, so it has to
+// follow the host's `color-scheme` the same way the components inside it do.
+// Each value reads an --fs-* token with the CURRENT colour as the fallback, so
+// an app without @firestitch/style installed renders exactly as it does today
+// and nothing about the light appearance changes.
+//
+// The toolbar takes `surface-raised` rather than `surface`: it is the strip that
+// sits above the card, and on a dark ground a raised surface has to be LIGHTER
+// than what it sits on, not darker.
 mat-toolbar {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  color: rgba(0,0,0,0.54);
+  background: var(--fs-color-surface-raised, light-dark(#FFFFFF, #292A2F));
+  color: var(--fs-color-text-muted, light-dark(rgba(0, 0, 0, 0.54), #97A5A6));
   font-size: 16px;
   display: flex;
   justify-content: space-between;
@@ -28,10 +40,16 @@ mat-toolbar {
 
 .example-container {
   border-radius: 12px;
+  // The card itself. Form fields inside a demo are `transparent` by Material's
+  // own theme, so whatever is painted here is what shows through them -- which
+  // is why a hardcoded white card made every input look white regardless of the
+  // scheme.
+  background: var(--fs-color-surface, light-dark(#FFFFFF, #232428));
+  color: var(--fs-color-text, light-dark(rgba(0, 0, 0, 0.87), #E8EDEC));
 }
 
 .example-code {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid var(--fs-hairline, light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.22)));
   font-family: monospace;
   margin: 0;
   padding: 15px !important;

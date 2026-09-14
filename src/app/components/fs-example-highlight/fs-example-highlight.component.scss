@@ -5,7 +5,7 @@
   display: none;
   top: 8px;
   right: 8px;
-  color: rgba(0,0,0,.38);
+  color: var(--fs-color-text-faint, light-dark(rgba(0, 0, 0, .38), #6A7779));
 }
 
 :host {
